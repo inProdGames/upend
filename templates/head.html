@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="google-site-verification" content="QL0VJHpt5cMGsv_HhmqEgze2PjYRR1Ih9TyPOz2lqDw"/>
+		
+		{% if keywords %}
+			<meta name="keywords" content="{{ keywords }}" />
+		{% else %}
+			<meta name="keywords" content="inverted, productions, games, program, legitimate, L, LiquidForge, tower, defense" />
+		{% endif %}
+		{% if description %}
+			<meta name="description" content="{{ description }}" />
+		{% endif %}
+		<meta name="language" content="en" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		{% if title %}
+			<title>{{ title }} - Inverted Productions</title>
+		{% else %}
+			<title>Inverted Productions - Turning your gaming world upside-down</title>
+		{% endif %}
+		<link rel="stylesheet" type="text/css" href="/static/styles/general.css" />
+		<link rel="shortcut icon" type="image/x-icon" href="/static/images/favicon.ico" />
+		<link rel="alternate" type="application/rss+xml" title="inProd News" href="/static/rss.xml"/>
+		<link rel="publisher" href="https://plus.google.com/117553032782875379546"/>
+	</head>
+	<body>
+		<header class="header">
+			<a href="/" class="logo">
+				<img src="/static/images/logos/icon.svg" alt="Inverted Productions icon" class="logo-icon" />
+				<img src="/static/images/logos/short.svg" alt="Inverted Productions logo" class="logo-short" />
+				<img src="/static/images/logos/long.svg" alt="Inverted Productions logo" class="logo-long" />
+			</a>
+			<nav class="navBar">
+				<a href="/" data-text="Home">Home</a>
+				<a href="/games" data-text="Games">Games</a>
+				<a href="/news" data-text="News">News</a>
+			</nav>
+		</header>
+		<!--<a href="/static/rss.xml" target="_blank"></a>
+		<a href="https://plus.google.com/117553032782875379546?prsrc=3" rel="publisher" target="_blank"></a>
+		<a href="http://www.facebook.com/pages/Inverted-Productions/115574418462785" target="_blank"></a>-->

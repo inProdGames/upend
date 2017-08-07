@@ -1,0 +1,245 @@
+@font-face {
+	font-family: 'Denmark';
+	src: url('../fonts/denmark.woff') format('woff'),
+		url('../fonts/denmark.svg#Denmark-Regular') format('svg'),
+		url('../fonts/denmark.eot'),
+		url('../fonts/denmark.eot?#iefix') format('embedded-opentype'); 
+}
+
+/* General elements */
+html,
+body {
+	margin: 0;
+	padding: 0;
+	border: 0 none;
+}
+h1 {
+	color: #050505;
+	font-size: 300%;
+	font-weight: bold;
+	text-align: center;
+}
+img {
+	border: 0 none;
+}
+a {
+	color: #030303;
+	text-decoration: underline;
+}
+	a:hover {
+		color: #333333;
+	}
+	a:active {
+		color: #808080;
+	}
+
+iframe {
+	border: 0 none;
+}
+
+/* Common page structure */
+body {
+	margin-top: 96px;
+	
+	background-color: #fefefe;
+	background-attachment: fixed;
+	background-image: -webkit-gradient(linear, left 0%, left 80%, from(#EFEFEF), to(#FEFEFE));
+	background-image: -webkit-linear-gradient(#EFEFEF, #FEFEFE 600px);
+	background-image:    -moz-linear-gradient(#EFEFEF, #FEFEFE 600px);
+	background-image:     -ms-linear-gradient(#EFEFEF, #FEFEFE 600px);
+	background-image:      -o-linear-gradient(#EFEFEF, #FEFEFE 600px);
+	background-image:         linear-gradient(#EFEFEF, #FEFEFE 600px);
+	    filter: progid:DXImageTransform.Microsoft.Gradient(gradientType=0, startColor=#EFEFEF, endColor=#FEFEFE);
+	-ms-filter:"progid:DXImageTransform.Microsoft.Gradient(gradientType=0, startColor=#EFEFEF, endColor=#FEFEFE)";
+	color: #030303;
+	font-family: sans-serif;
+	font-size: 12pt;
+}
+.header {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	height: 32px;
+	padding: 8px 8px 0;
+	overflow: visible;
+	
+	background-color: hsl(0, 0%, 20%);
+	color: white;
+}
+	.logo {
+		float: left;
+		
+		font-size: 1px;
+		color: transparent;
+	}
+		.logo img {
+			height: 64px;
+		}
+			.logo img.logo-icon {
+				display: inline-block;
+			}
+			.logo img.logo-short,
+			.logo img.logo-long {
+				display: none;
+			}
+	.navBar {
+		width: 100%;
+		text-align: center;
+		
+		margin-top: -16px;
+		height: 48px;
+	}
+		.navBar a {
+			display: inline-block;
+			font-size: 40px;
+			height: 38px;
+			padding: 10px 2px 0;
+			
+			color: inherit;
+			font-family: 'Denmark', sans-serif;
+			text-decoration: none;
+			text-transform: uppercase;
+			transform: scaleX(0.9);
+			letter-spacing: 0.05em;
+			
+			position: relative;
+		}
+			.navBar a::before {
+				display: block;
+				position: absolute;
+				left: 2px;
+				top: 100%;
+				transform: rotateZ(180deg) translateY(9px);
+				
+				content: attr(data-text);
+				color: hsl(0, 0%, 20%);
+			}
+			.navBar a:hover,
+			.navBar a:focus {
+				background-color: hsl(0, 0%, 25%);
+				outline: 0 none;
+			}
+				.navBar a:hover::before,
+				.navBar a:focus::before {
+					color: hsl(0, 0%, 25%);
+				}
+			.navBar a:active {
+				background-color: hsl(0, 0%, 30%);
+			}
+				.navBar a:active::before {
+					color: hsl(0, 0%, 30%);
+				}
+
+.footer {
+	text-align:center;
+	font-size: 60%;
+}
+
+@media (min-width: 600px) {
+	.navBar a {
+		padding-left: 8px;
+		padding-right: 8px;
+	}
+		.navBar a::before {
+			left: 8px;
+		}
+}
+@media (min-width: 740px) {
+	/*.logo {
+		width: 166px;
+	}*/
+	.logo img.logo-short {
+		display: inline-block;
+	}
+	.logo img.logo-icon,
+	.logo img.logo-long {
+		display: none;
+	}
+	.navBar a {
+		padding-left: 16px;
+		padding-right: 16px;
+	}
+		.navBar a::before {
+			left: 16px;
+		}
+}
+
+@media (min-width: 1126px) {
+	/*.logo {
+		width: 556px;
+	}*/
+	.logo img.logo-long {
+		display: inline-block;
+	}
+	.logo img.logo-icon,
+	.logo img.logo-short {
+		display: none;
+	}
+}
+
+/* Old site styles */
+#main {
+	position:absolute;
+	top:145px;
+	left:230px;
+	width:749px;
+	text-align:left;
+	vertical-align:top;
+	z-index:50;
+	visibility:visible;
+}
+.currentpg {
+	color:#030303;
+	font-size:12pt;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+.mainpara {
+}
+
+.smalltext {
+	color:#030303;
+	font-size:8pt;
+	font-weight:normal;
+	text-decoration:none;
+}
+a.smalltext {
+	color:#030303;
+	text-decoration:underline;
+}
+a.smalltext:visited {
+	color:#030303;
+}
+a.smalltext:hover {
+	color:#333333;
+}
+a.smalltext:active {
+	color:#808080;
+}
+
+.game {
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+	
+	height:auto;
+}
+.share {
+	vertical-align:center;
+}
+td.share {
+	margin:8px;
+}
+.feedback {
+	border-left-style:solid;
+	border-left-width:1px;
+	border-left-color:lightgray;
+	
+	background-image:url(/public/images/icons/envelope.png);
+	background-repeat:no-repeat;
+	background-position:center center;
+	
+	text-align:center;
+}

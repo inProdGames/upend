@@ -1,0 +1,27 @@
+application: inprodsite
+version: 2
+runtime: python27
+api_version: 1
+threadsafe: true
+
+libraries:
+- name: webapp2
+  version: latest
+- name: jinja2
+  version: latest
+
+handlers:
+- url: /static
+  static_dir: static
+
+- url: /.*\.(x|ht)ml
+  script: redirect.site
+
+- url: /games/?.*
+  script: games.site
+
+- url: /admin/?.*
+  script: admin.site
+
+- url: /.*
+  script: main.site
