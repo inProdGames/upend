@@ -26,12 +26,23 @@ a {
 	color: #030303;
 	text-decoration: underline;
 }
-	a:hover {
+	a svg {
+		fill: #030303;
+	}
+	a:hover,
+	a:focus {
 		color: #333333;
 	}
+		a:hover svg,
+		a:focus svg {
+			fill: #333333;
+		}
 	a:active {
 		color: #808080;
 	}
+		a:active svg {
+			fill: #808080;
+		}
 
 iframe {
 	border: 0 none;
@@ -63,6 +74,7 @@ body {
 	height: 32px;
 	padding: 8px 8px 0;
 	overflow: visible;
+	text-align: center;
 	
 	background-color: hsl(0, 0%, 20%);
 	color: white;
@@ -83,69 +95,83 @@ body {
 			.logo img.logo-long {
 				display: none;
 			}
-	.navBar {
-		width: 100%;
-		text-align: center;
-		
+	.nav-link {
+		display: inline-block;
+		font-size: 40px;
+		height: 38px;
+		padding: 10px 2px 0;
 		margin-top: -16px;
-		height: 48px;
+		
+		color: inherit;
+		font-family: 'Denmark', sans-serif;
+		text-decoration: none;
+		text-transform: uppercase;
+		transform: scaleX(0.9);
+		letter-spacing: 0.05em;
+		
+		position: relative;
 	}
-		.navBar a {
-			display: inline-block;
-			font-size: 40px;
-			height: 38px;
-			padding: 10px 2px 0;
+		.nav-link::before {
+			display: block;
+			position: absolute;
+			left: 2px;
+			top: 100%;
+			transform: rotateZ(180deg) translateY(9px);
 			
-			color: inherit;
-			font-family: 'Denmark', sans-serif;
-			text-decoration: none;
-			text-transform: uppercase;
-			transform: scaleX(0.9);
-			letter-spacing: 0.05em;
-			
-			position: relative;
+			content: attr(data-text);
+			color: hsl(0, 0%, 20%);
 		}
-			.navBar a::before {
-				display: block;
-				position: absolute;
-				left: 2px;
-				top: 100%;
-				transform: rotateZ(180deg) translateY(9px);
-				
-				content: attr(data-text);
-				color: hsl(0, 0%, 20%);
+		.nav-link:hover,
+		.nav-link:focus {
+			background-color: hsl(0, 0%, 25%);
+			outline: 0 none;
+		}
+			.nav-link:hover::before,
+			.nav-link:focus::before {
+				color: hsl(0, 0%, 25%);
 			}
-			.navBar a:hover,
-			.navBar a:focus {
-				background-color: hsl(0, 0%, 25%);
-				outline: 0 none;
+		.nav-link:active {
+			background-color: hsl(0, 0%, 30%);
+		}
+			.nav-link:active::before {
+				color: hsl(0, 0%, 30%);
 			}
-				.navBar a:hover::before,
-				.navBar a:focus::before {
-					color: hsl(0, 0%, 25%);
-				}
-			.navBar a:active {
-				background-color: hsl(0, 0%, 30%);
-			}
-				.navBar a:active::before {
-					color: hsl(0, 0%, 30%);
-				}
 
 .footer {
 	text-align:center;
 	font-size: 60%;
 }
 
+.feed-links a {
+	text-decoration: none;
+}
+.feed-links svg {
+	width: 24px;
+	height: 24px;
+	margin: 0 8px;
+	transform: scale(1.25);
+}
+	.header .feed-links {
+		float: right;
+		display: none;
+	}
+		.header .feed-links svg {
+			fill: white;
+		}
+	.footer .feed-links {
+		display: block;
+	}
+
 @media (min-width: 600px) {
-	.navBar a {
+	.nav-link {
 		padding-left: 8px;
 		padding-right: 8px;
 	}
-		.navBar a::before {
+		.nav-link::before {
 			left: 8px;
 		}
 }
-@media (min-width: 740px) {
+@media (min-width: 760px) {
 	/*.logo {
 		width: 166px;
 	}*/
@@ -156,16 +182,23 @@ body {
 	.logo img.logo-long {
 		display: none;
 	}
-	.navBar a {
+	.nav-link {
 		padding-left: 16px;
 		padding-right: 16px;
 	}
-		.navBar a::before {
+		.nav-link::before {
 			left: 16px;
 		}
 }
-
-@media (min-width: 1126px) {
+@media (min-width: 932px) {
+	.header .feed-links {
+		display: inline-block;
+	}
+	.footer .feed-links {
+		display: none;
+	}
+}
+@media (min-width: 1320px) {
 	/*.logo {
 		width: 556px;
 	}*/
