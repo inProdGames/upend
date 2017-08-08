@@ -16,7 +16,10 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 
 class HomePage(webapp2.RequestHandler):
 	def get(self):
-		templateVars = {'description':'The homepage of Inverted Productions, featuring video games that offer a completely new gaming experience or a new perspective on existing games or game styles.'}
+		templateVars = {
+			'description':'The homepage of Inverted Productions, featuring video games that offer a completely new gaming experiences or new perspectives on familiar games.',
+			'styles': 'home'
+		}
 		
 		template = JINJA_ENVIRONMENT.get_template('head.html')
 		self.response.write(template.render(templateVars))

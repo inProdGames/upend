@@ -1,158 +1,27 @@
-		<style type="text/css">
-			a.gamesLink {
-				color:Black;
-				font-family:Arial, Helvetica, sans-serif;
-				font-size:26pt;
-				font-weight:Bold;
-			}
-			a.gamesLink:link {
-				color:Black;
-				text-decoration:none;
-			}
-			a.gamesLink:visited {
-				color:Black;
-				text-decoration:none;
-			}
-			a.gamesLink:hover {
-				color:Black;
-				text-decoration:underline;
-			}
-			a.gamesLink:active {
-				color:#444444;
-				text-decoration:underline;
-			}
-			
-			a.gamesLinkSmall {
-				color:Black;
-				font-family:Arial, Helvetica, sans-serif;
-				font-size:14pt;
-			}
-			a.gamesLinkSmall:link {
-				color:Black;
-				text-decoration:none;
-			}
-			a.gamesLinkSmall:visited {
-				color:Black;
-				text-decoration:none;
-			}
-			a.gamesLinkSmall:hover {
-				color:Black;
-				text-decoration:underline;
-			}
-			a.gamesLinkSmall:active {
-				color:#444444;
-				text-decoration:underline;
-			}
-			
-			.featuredGameImg {
-				display:block;
-				
-				position:absolute;
-				
-				-webkit-border-radius:18px;
-				   -moz-border-radius:18px;
-				        border-radius:18px;
-				
-				background-repeat:repeat-x;
-				
-				-webkit-transition-property:background-position;
-				   -moz-transition-property:background-position;
-				    -ms-transition-property:background-position;
-				     -o-transition-property:background-position;
-				        transition-property:background-position;
-				-webkit-transition-duration:0.75s;
-				   -moz-transition-duration:0.75s;
-				    -ms-transition-duration:0.75s;
-				     -o-transition-duration:0.75s;
-				        transition-duration:0.75s;
-			}
-			.featuredGameImg img {
-				-webkit-border-radius:18px;
-				   -moz-border-radius:18px;
-				        border-radius:18px;
-			}
-		</style>
-		<script type="text/javascript">
-			function FeaturedGameImg(id, x, y, w, h, segments) {
-				this.elem = document.getElementById(id + "Img");
-				this.elem.innerHTML = "&nbsp;";
-				this.elem.className = "featuredGameImg";
-				this.elem.style.left = x + "px";
-				this.elem.style.top = y + "px";
-				this.elem.style.width = w + "px";
-				this.elem.style.height = h + "px";
-				this.elem.style.backgroundImage = "url(/public/images/games/thumbstrips/" + id + ".png)";
-				this.elem.style.backgroundPosition = "0px 0px";
-				
-				this.segs = segments;
-				this.segWidth = w;
-				this.currentSeg = 0;
-				
-			}
-			function scrollGameImgs() {
-				for (var i = 0; i < featuredGamesImgs.length; i++) {
-					//featuredGamesImgs[i].elem.style.backgroundPositionX = (-featuredGamesImgs[i].currentSeg * featuredGamesImgs[i].segWidth) + "px";
-					featuredGamesImgs[i].elem.style.backgroundPosition = (-featuredGamesImgs[i].currentSeg * featuredGamesImgs[i].segWidth) + "px 0px";
-					if (++featuredGamesImgs[i].currentSeg >= featuredGamesImgs[i].segs) {
-						featuredGamesImgs[i].currentSeg = 0;
-					}
-				}
-			}
-			var featuredGamesImgs = [];
-		</script>
-		<div id="main">
-			<!-- featured games -->
-			<div style="position:relative; top:-16; left:48px; width:600px; height:500px;">
-				<!-- 7h3 f457 64m3 -->
-				<a href="games/fastgame/index.html" class="featuredGameImg" id="fastgameImg">
-					<img src="/public/images/games/thumbs/fastgame_small.png" alt="" />
-				</a>
-				<a href="games/fastgame/index.html" class="gamesLink" style="position:absolute; left:139px; top:30px; text-align:left;">
-					The Fast Game
-				</a>
-				<a href="games/fastgame/index.html" class="gamesLinkSmall" style="position:absolute; left:140px; top:75px; text-align:left;">
-					An early preview with some tricky puzzle solving
-				</a>
-				<!-- inv3r53 cu83 runn3r p1u5 -->
-				<!--<a href="/games/icrplus/index.html" id="icrplusImg">
-					<img src="/public/images/games/thumbs/icrplus_small.png" alt="" />
-				</a>
-				<a href="/games/icrplus/index.html" class="gamesLink" style="position:absolute; left:139px; top:25px; text-align:left;">
-					Inverse Cube Runner Plus
-				</a>
-				<a href="/games/icrplus/index.html" class="gamesLinkSmall" style="position:absolute; left:140px; top:70px; text-align:left;">
-					Play <i>Cube Runner</i> from the opposite perspective
-				</a>-->
-				
-				<!-- inv3r53 mi55i13 d3f3n53 -->
-				<a href="/games/imd/index.html" class="featuredGameImg" id="imdImg">
-					<img src="/public/images/games/thumbs/imd_small.png" alt="" style="position:absolute;left:0px;top:10px;" />
-				</a>
-				<a href="/games/imd/index.html" class="gamesLink" style="position:absolute; left:15px; top:170px; text-align:right;">
-					Inverse Missile Defense
-				</a>
-				<a href="/games/imd/index.html" class="gamesLinkSmall" style="position:absolute; left:142px; top:215px; text-align:right;">
-					Play <i>Missile Command</i> from the<br/>
-					opposite perspective
-				</a>
-				
-				<!-- 17d -->
-				<a href="/games/ltd/index.html" class="featuredGameImg" id="ltdImg">
-					<img src="/public/images/games/slideshows/ltd.gif" alt="" />
-				</a>
-				<a href="/games/ltd/index.html" class="gamesLink" style="position:absolute; left:155px; top:329px; text-align:left;">
-					Legitimate Tower Defense
-				</a>
-				<a href="/games/ltd/index.html" class="gamesLinkSmall" style="position:absolute; left:156px; top:374px; text-align:left;">
-					Play tower defense from a new perspective
-				</a>
-				<script type="text/javascript">
-					featuredGamesImgs.push(new FeaturedGameImg("fastgame", 0, 24, 128, 128, 3));
-					//featuredGamesImgs.push(new FeaturedGameImg("icrplus", 0, 24, 128, 88, 3));
-					featuredGamesImgs.push(new FeaturedGameImg("imd", 415, 173, 171, 96, 2));
-					featuredGamesImgs.push(new FeaturedGameImg("ltd", 24, 320, 123, 174, 3));
-					var featuredGameImgsScrollInterval = setInterval(scrollGameImgs, 5000);
-				</script>
-			</div>
-			<br/>
-			<br/>
+<section>
+	<a href="games/fastgame/index.html" class="feature-row">
+		<div class="feature-thumbs" style="background-image: url('/static/images/games/thumbstrips/fastgame.png');"></div>
+		<span class="feature-text">
+			<h2 class="feature-title">The Fast Game</h2>
+			<p>An early preview with some tricky puzzle solving</p>
+		</span>
+	</a><a href="games/icrplus" class="feature-row">
+		<div class="feature-thumbs" style="background-image: url('/static/images/games/thumbstrips/icrplus.png');"></div>
+		<span class="feature-text">
+			<h2 class="feature-title">Inverse Cube Runner Plus <span style="vertical-align: super; font-size: 50%;">(beta)</span></h2>
+			<p>Play <i>Cube Runner</i> from the opposite perspective</p>
+		</span>
+	</a><a href="games/imd" class="feature-row">
+		<div class="feature-thumbs" style="background-image: url('/static/images/games/thumbstrips/imd.png');"></div>
+		<span class="feature-text">
+			<h2 class="feature-title">Inverse Missile Defense <span style="vertical-align: super; font-size: 50%;">(beta)</span></h2>
+			<p>Play <i>Missile Command</i> from the opposite perspective</p>
+		</span>
+	</a><a href="games/ltd" class="feature-row">
+		<div class="feature-thumbs" style="background-image: url('/static/images/games/thumbstrips/ltd.png');"></div>
+		<span class="feature-text">
+			<h2 class="feature-title">Legitimate Tower Defense</h2>
+			<p>Legitimate Tower Defense</p>
+		</span>
+	</a>
+</section>

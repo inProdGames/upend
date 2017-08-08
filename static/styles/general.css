@@ -140,6 +140,7 @@ body {
 .footer {
 	text-align:center;
 	font-size: 60%;
+	margin: 1em;
 }
 
 .feed-links a {
