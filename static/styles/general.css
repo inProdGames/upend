@@ -61,15 +61,6 @@ iframe {
 }
 
 /* Old site styles */
-#main {
-	position:absolute;
-	top:145px;
-	left:230px;
-	width:749px;
-	text-align:left;
-	vertical-align:top;
-	visibility:visible;
-}
 .currentpg {
 	color:#030303;
 	font-size:12pt;
