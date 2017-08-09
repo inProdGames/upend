@@ -19,6 +19,10 @@ h1 {
 	font-weight: bold;
 	text-align: center;
 }
+sup,
+sub {
+	font-size: 60%;
+}
 img {
 	border: 0 none;
 }
