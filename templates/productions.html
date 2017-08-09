@@ -128,6 +128,11 @@
 				border-bottom-color:black;
 				border-bottom-width:1px;
 			}
+			#gamesTable svg {
+				width: 24px;
+				height: 24px;
+				transform: scale(1.5);
+			}
 			
 			.nameCol {
 				text-align:left;
@@ -175,7 +180,7 @@
 				<tr id="fastGameRow">
 					<td>
 						<a class="gamelink" href="/games/fastgame">
-							<img src="/public/images/games/thumbs/fastgame_small.png"/>
+							<img src="/static/images/games/thumbs/fastgame_small.png"/>
 						</a>
 					</td>
 					<td class="nameCol">
@@ -185,9 +190,9 @@
 						</a>
 					</td>
 					<td>
-						Flash
-						<br/>
-						<img src="/public/images/icons/flash.png"/>
+						<svg role="img">
+							<use xlink:href="/static/images/icons/flash.svg#icon"></use>
+						</svg>
 					</td>
 					<td style="color:blue;">
 						Beta
@@ -196,7 +201,7 @@
 				<tr id="icrRow">
 					<td>
 						<a href="/games/icr" class="gamelink">
-							<img src="/public/images/games/thumbs/icr_small.png"/>
+							<img src="/static/images/games/thumbs/icr_small.png"/>
 						</a>
 					</td>
 					<td class="nameCol">
@@ -206,19 +211,19 @@
 						</a>
 					</td>
 					<td>
-						Java
-						<br/>
-						<img src="/public/images/icons/java.png"/>
+						<svg role="img">
+							<use xlink:href="/static/images/icons/java.svg#icon"></use>
+						</svg>
 					</td>
 					<td style="color:green;">
 						&ldquo;Complete&rdquo;
 					</td>
 				</tr>
-<!--				<tr id="icrplusRow">
+				<tr id="icrplusRow">
 					<td>
 						<a href="/games/icrplus" class="gamelink">
 							<br/>
-							<img src="/public/images/games/thumbs/icrplus_small.png"/>
+							<img src="/static/images/games/thumbs/icrplus_small.png"/>
 						</a>
 					</td>
 					<td class="nameCol">
@@ -228,19 +233,19 @@
 						</a>
 					</td>
 					<td>
-						HTML5
-						<br/>
-						<img src="/public/images/icons/html5.png"/>
+						<svg role="img">
+							<use xlink:href="/static/images/icons/html5.svg#icon"></use>
+						</svg>
 					</td>
 					<td style="color:blue;">
 						Beta
 					</td>
-				</tr> -->
+				</tr>
 				<tr id="imdRow">
 					<td>
 						<a href="/games/imd" class="gamelink">
 							<br/>
-							<img src="/public/images/games/thumbs/imd_small.png"/>
+							<img src="/static/images/games/thumbs/imd_small.png"/>
 						</a>
 					</td>
 					<td class="nameCol">
@@ -250,9 +255,9 @@
 						</a>
 					</td>
 					<td>
-						Flash
-						<br/>
-						<img src="/public/images/icons/flash.png"/>
+						<svg role="img">
+							<use xlink:href="/static/images/icons/flash.svg#icon"></use>
+						</svg>
 					</td>
 					<td style="color:blue;">
 						Beta
@@ -261,7 +266,7 @@
 				<tr id="lagrangeRow">
 					<td>
 						<a href="/games/lagrange" class="gamelink">
-							<img src="/public/images/games/thumbs/lagrange_small.png"/>
+							<img src="/static/images/games/thumbs/lagrange_small.png"/>
 						</a>
 					</td>
 					<td class="nameCol">
@@ -271,9 +276,9 @@
 						</a>
 					</td>
 					<td>
-						Java
-						<br/>
-						<img src="/public/images/icons/java.png"/>
+						<svg role="img">
+							<use xlink:href="/static/images/icons/java.svg#icon"></use>
+						</svg>
 					</td>
 
 
@@ -284,7 +289,7 @@
 				<tr id="ltdRow">
 					<td>
 						<a class="gamelink" href="/games/ltd">
-							<img src="/public/images/games/thumbs/ltd_small.png"/>
+							<img src="/static/images/games/thumbs/ltd_small.png"/>
 						</a>
 					<td class="nameCol">
 						<a class="gamelink" href="/games/ltd">
@@ -293,9 +298,9 @@
 						</a>
 					</td>
 					<td>
-						Flash
-						<br/>
-						<img src="/public/images/icons/flash.png"/>
+						<svg role="img">
+							<use xlink:href="/static/images/icons/flash.svg#icon"></use>
+						</svg>
 					</td>
 					<td style="color:green;">
 						&ldquo;Complete&rdquo;
@@ -312,9 +317,9 @@
 						</a>
 					</td>
 					<td>
-						Flash
-						<br/>
-						<img src="/public/images/icons/flash.png"/>
+						<svg role="img">
+							<use xlink:href="/static/images/icons/flash.svg#icon"></use>
+						</svg>
 					</td>
 					<td style="color:darkred;">
 						Shelved
@@ -330,12 +335,13 @@
 						</a>
 					</td>
 					<td class="typeCol">
-						Flash
-						<br/>
-						<img src="/public/images/icons/flash.png"/>
+						<svg role="img">
+							<use xlink:href="/static/images/icons/flash.svg#icon"></use>
+						</svg>
 					</td>
 					<td class="statusCol" style="color:darkred;">
 						Shelved
 					</td>
 				</tr>
 			</table>
+		</div>
