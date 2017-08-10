@@ -15,7 +15,7 @@
 	}
 	
 	.feature-row:nth-child(2n) {
-		background-color: transparent;
+		background-color: #e0e0e0;
 		text-align: right;
 	}
 	
@@ -24,15 +24,16 @@
 		height: 100%;
 		width: 48%;
 		max-width: 384px;
+		box-shadow: inset -32px 0 16px -16px white;
+		
+		animation-direction: alternate;
+		animation-iteration-count: infinite;
 		
 		float: left;
-		margin-left: 0;
-		margin-right: 8px;
 	}
 		.feature-row:nth-child(2n) .feature-thumbs {
 			float: right;
-			margin-right: 0;
-			margin-left: 8px;
+			box-shadow: inset 32px 0 16px -16px #e0e0e0;
 		}
 	
 	.feature-row .feature-text {
@@ -49,7 +50,6 @@
 			margin-top: 0;
 		}
 
-
 @media (min-width: 1320px) {
 	.feature-row {
 		width: 50%;
@@ -62,18 +62,54 @@
 			.feature-row:nth-child(2n - 1) .feature-thumbs,
 			.feature-row:nth-child(2n) .feature-thumbs {
 				float: left;
-				margin-left: 0;
-				margin-right: 8px;
+				box-shadow: inset -32px 0 16px -16px white;
 			}
 		.feature-row:nth-child(4n - 1),
 		.feature-row:nth-child(4n) {
-			background-color: transparent;
+			background-color: #e0e0e0;
 			text-align: right;
 		}
 			.feature-row:nth-child(4n - 1) .feature-thumbs,
 			.feature-row:nth-child(4n) .feature-thumbs {
 				float: right;
-				margin-right: 0;
-				margin-left: 8px;
+				box-shadow: inset 32px 0 16px -16px #e0e0e0;
 			}
+}
+
+/* Thumbnail animations */
+.feature-2thumbs {
+	animation-name: feature-2thumb;
+	animation-duration: 10s; /* 2 thumbs * 5 seconds each */
+}
+.feature-3thumbs {
+	animation-name: feature-3thumb;
+	animation-duration: 15s; /* 3 thumbs * 5 seconds each */
+}
+.feature-4thumbs {
+	animation-name: feature-4thumb;
+	animation-duration: 20s; /* 4 thumbs * 5 seconds each */
+}
+@keyframes feature-2thumb {
+	0%   { background-position: 0% 0%;   }
+	48%  { background-position: 0% 0%;   }
+	52%  { background-position: 100% 0%; }
+	100% { background-position: 100% 0%; }
+}
+@keyframes feature-3thumb {
+	0%   { background-position: 0% 0%;   }
+	31%  { background-position: 0% 0%;   }
+	35%  { background-position: 50% 0%;  }
+	65%  { background-position: 50% 0%;  }
+	69%  { background-position: 100% 0%; }
+	100% { background-position: 100% 0%; }
+}
+@keyframes feature-4thumb {
+	0%   { background-position: 0% 0%;   }
+	23%  { background-position: 0% 0%;   }
+	27%  { background-position: 33% 0%;  }
+	48%  { background-position: 33% 0%;  }
+	52%  { background-position: 67% 0%;  }
+	73%  { background-position: 67% 0%;  }
+	77%  { background-position: 100% 0%; }
+	100% { background-position: 100% 0%; }
 }
