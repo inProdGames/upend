@@ -4,14 +4,8 @@ body {
 	
 	background-color: #fefefe;
 	background-attachment: fixed;
-	background-image: -webkit-gradient(linear, left 0%, left 80%, from(#EFEFEF), to(#FEFEFE));
-	background-image: -webkit-linear-gradient(#EFEFEF, #FEFEFE 600px);
-	background-image:    -moz-linear-gradient(#EFEFEF, #FEFEFE 600px);
-	background-image:     -ms-linear-gradient(#EFEFEF, #FEFEFE 600px);
-	background-image:      -o-linear-gradient(#EFEFEF, #FEFEFE 600px);
-	background-image:         linear-gradient(#EFEFEF, #FEFEFE 600px);
-	    filter: progid:DXImageTransform.Microsoft.Gradient(gradientType=0, startColor=#EFEFEF, endColor=#FEFEFE);
-	-ms-filter:"progid:DXImageTransform.Microsoft.Gradient(gradientType=0, startColor=#EFEFEF, endColor=#FEFEFE)";
+	background-image: linear-gradient(white 104px, #efefef 50%);
+	
 	color: #030303;
 	font-family: sans-serif;
 	font-size: 12pt;
