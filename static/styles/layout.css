@@ -1,6 +1,6 @@
 /* Common page structure */
 body {
-	margin-top: 96px;
+	margin-top: 72px;
 	
 	background-color: #fefefe;
 	background-attachment: fixed;
@@ -29,6 +29,7 @@ body {
 }
 	.logo {
 		float: left;
+		margin-right: -16px;
 		
 		font-size: 1px;
 		color: transparent;
@@ -44,11 +45,12 @@ body {
 				display: none;
 			}
 	.nav-link {
+		box-sizing: border-box;
 		display: inline-block;
-		font-size: 40px;
-		height: 38px;
-		padding: 10px 2px 0;
-		margin-top: -16px;
+		font-size: 24px;
+		height: 40px;
+		padding: 5px;
+		margin: -8px -6px;
 		
 		color: inherit;
 		font-family: 'Denmark', sans-serif;
@@ -59,33 +61,16 @@ body {
 		
 		position: relative;
 	}
-		.nav-link::before {
-			display: block;
-			position: absolute;
-			left: 2px;
-			top: 100%;
-			transform: rotateZ(180deg) translateY(9px);
-			
-			content: attr(data-text);
-			color: hsl(0, 0%, 20%);
-		}
 		.nav-link:hover,
 		.nav-link:focus {
 			background-color: hsl(0, 0%, 25%);
 			color: inherit;
 			outline: 0 none;
 		}
-			.nav-link:hover::before,
-			.nav-link:focus::before {
-				color: hsl(0, 0%, 25%);
-			}
 		.nav-link:active {
 			background-color: hsl(0, 0%, 30%);
 			color: inherit;
 		}
-			.nav-link:active::before {
-				color: hsl(0, 0%, 30%);
-			}
 
 .footer {
 	text-align:center;
@@ -143,14 +128,37 @@ body {
 		background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
 	}
 
-@media (min-width: 600px) {
+@media (min-width: 412px) {
 	.nav-link {
-		padding-left: 8px;
-		padding-right: 8px;
+		padding-left: 12px;
+		padding-right: 12px;
+	}
+}
+@media (min-width: 560px) {
+	.logo {
+		margin-right: 0;
+	}
+	.nav-link {
+		font-size: 40px;
+		padding: 2px 4px;
 	}
 		.nav-link::before {
-			left: 8px;
+			display: block;
+			position: absolute;
+			left: 4px;
+			top: 100%;
+			transform: rotateZ(180deg) translateY(9px);
+			
+			content: attr(data-text);
+			color: hsl(0, 0%, 20%);
 		}
+			.nav-link:hover::before,
+			.nav-link:focus::before {
+				color: hsl(0, 0%, 25%);
+			}
+			.nav-link:active::before {
+				color: hsl(0, 0%, 30%);
+			}
 }
 @media (min-width: 760px) {
 	/*.logo {
