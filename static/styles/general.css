@@ -51,6 +51,9 @@ a {
 iframe {
 	border: 0 none;
 }
+hr {
+	border-width: 1px 0 0;
+}
 
 .fallback-message {
 	box-sizing: border-box;
