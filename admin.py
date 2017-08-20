@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 
-import games
-
 import os
 
 from google.appengine.api import users
 
 import jinja2
 import webapp2
+
+from models import Game
 
 JINJA_ENVIRONMENT = jinja2.Environment(
 	loader=jinja2.FileSystemLoader(os.path.join(os.path.dirname(__file__), 'templates/')),
@@ -21,6 +21,20 @@ class ReloadGameData(webapp2.RequestHandler):
 			if users.is_current_user_admin():
 				gameData = [
 					{
+						'id':'bananasplit',
+						'title':'Banana Split',
+						'description':'<i>Banana Split</i> is a fast-paced couch competitive game that twists third-person shooter with real-time strategy ingredients for a sweet new experience.',
+						'embedCode':'<a class="twitter-timeline" data-width="480" data-height="640" href="https://twitter.com/BananaSplitFun">Tweets by BananaSplitFun</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>',
+						'version':'17.08.1',
+						'status':'In development',
+						'credits':'Created and developed by Zachary Yaro',
+						'facebook_url':'https://www.facebook.com/BananaSplitGame',
+						'gplus_url':'https://plus.google.com/109028726682414400776',
+						'twitter_url':'https://twitter.com/BananaSplitFun',
+						'visible':True,
+						'feature_rank':1
+					},
+					{
 						'id':'fastgame',
 						'title':'The Fast Game',
 						'description':'A fast-paced tile game.',
@@ -28,7 +42,8 @@ class ReloadGameData(webapp2.RequestHandler):
 						'releaseDate':'TBD',
 						'version':'1.0',
 						'status':'Work-in-progress',
-						'credits':'Created and programmed by <a href=\"/people#jfranzen\">Jack Franzen</a><br />Graphics by <a href=\"/people#jfranzen\">Jack Franzen</a> (with a few sprites from <a href=\"/people#deliasen\">Derek Eliasen</a>)'
+						'credits':'Created and programmed by <a href=\"/people#jfranzen\">Jack Franzen</a><br />Graphics by <a href=\"/people#jfranzen\">Jack Franzen</a> (with a few sprites from <a href=\"/people#deliasen\">Derek Eliasen</a>)',
+						'visible':False
 					},
 					{
 						'id':'icr',
@@ -120,7 +135,9 @@ class ReloadGameData(webapp2.RequestHandler):
 									Fixed death graphic.
 								</li>
 							</ul>
-						'''
+						''',
+						'visible':True,
+						'feature_rank': 3
 					},
 					{
 						'id':'icrplus',
@@ -130,7 +147,9 @@ class ReloadGameData(webapp2.RequestHandler):
 						'releaseDate':'Not yet',
 						'version':'0.6 beta',
 						'status':'Work-in-progress',
-						'credits':'Created and programmed by <a href=\"/people#zyaro\">Zachary Yaro</a>'
+						'credits':'Created and programmed by <a href=\"/people#zyaro\">Zachary Yaro</a>',
+						'visible':True,
+						'feature_rank':-1
 					},
 					{
 						'id':'imd',
@@ -151,7 +170,9 @@ class ReloadGameData(webapp2.RequestHandler):
 							
 							1.0
 							- first release
-						'''
+						''',
+						'visible':True,
+						'feature_rank':3
 					},
 					{
 						'id':'lagrange',
@@ -162,6 +183,7 @@ class ReloadGameData(webapp2.RequestHandler):
 						'version':'1.2 alpha',
 						'status':'Work-in-progress',
 						'credits':'Created and programmed by <a href=\"/people#jfoxcanning\">Jamie Fox-Canning</a><br />Graphics by <a href=\"/people#jfoxcanning\">Jamie Fox-Canning</a>',
+						'visible':False
 					},
 					{
 						'id':'ltd',
@@ -171,7 +193,12 @@ class ReloadGameData(webapp2.RequestHandler):
 						'releaseDate':'April 16<sup>th</sup>, 2009',
 						'version':'2.3',
 						'status':'&ldquo;Complete&rdquo;',
-						'credits':'Created by <a href=\"/people#jfranzen\">Jack Franzen</a><br />Programmed by James Bradbury and <a href=\"/people#jfranzen\">Jack Franzen</a><br />Graphics by <a href=\"/people#jfranzen\">Jack Franzen</a> and <a href=\"/people#zyaro\">Zachary Yaro</a> (with a few sprites from <a href=\"/people#deliasen\">Derek Eliasen</a> and <a href=\"/people#jrenner\">John Renner</a>)'
+						'credits':'Created by <a href=\"/people#jfranzen\">Jack Franzen</a><br />Programmed by James Bradbury and <a href=\"/people#jfranzen\">Jack Franzen</a><br />Graphics by <a href=\"/people#jfranzen\">Jack Franzen</a> and <a href=\"/people#zyaro\">Zachary Yaro</a> (with a few sprites from <a href=\"/people#deliasen\">Derek Eliasen</a> and <a href=\"/people#jrenner\">John Renner</a>)',
+						'facebook_url':'https://www.facebook.com/Legitimate-Tower-Defense-322877514838473',
+						'gplus_url': 'https://plus.google.com/116844040350643203041',
+						'twitter_url':'https://twitter.com/LegitimateTD',
+						'visible':True,
+						'feature_rank':2
 					},
 					{
 						'id':'smtr',
@@ -182,6 +209,7 @@ class ReloadGameData(webapp2.RequestHandler):
 						'version':'Pre-alpha',
 						'status':'Shelved',
 						'credits':'Created by <a href=\"/people#jfranzen\">Jack Franzen</a><br />Programmed by James Bradbury and <a href=\"/people#jfranzen\">Jack Franzen</a><br />Graphics by <a href=\"/people#deliasen\">Derek Eliasen</a>, <a href=\"/people#jfranzen\">Jack Franzen</a>, and <a href=\"/people#zyaro\">Zachary Yaro</a>',
+						'visible':False
 					},
 					{
 						'id':'tpg',
@@ -192,13 +220,14 @@ class ReloadGameData(webapp2.RequestHandler):
 						'version':'Low effort demo',
 						'status':'Shelved',
 						'credits':'Created by <a href=\"/people#jfranzen\">Jack Franzen</a><br />Minigame design by <!--<a href=\"/people#deliasen\">Derek Eliasen</a>, --><a href=\"/people#jfranzen\">Jack Franzen</a><!--, John Renner, and Zachary Yaro -->',
+						'visible':False
 					}
 				]
 				
 				for game in gameData:
-					gameEntry = games.Game.gql('WHERE id = :1', game['id']).get()
+					gameEntry = Game.gql('WHERE id = :1', game['id']).get()
 					if not gameEntry:
-						gameEntry = games.Game()
+						gameEntry = Game()
 						gameEntry.id = game['id']
 					for var in game:
 						setattr(gameEntry, var, game[var])
@@ -206,7 +235,7 @@ class ReloadGameData(webapp2.RequestHandler):
 				
 				template = JINJA_ENVIRONMENT.get_template('head.html')
 				self.response.write(template.render({'title':'Admin'}))
-				self.response.write('</head><body><div id=\"main\">Game data re-loaded.</div></body></html>')
+				self.response.write('</head><body><div class=\"main\">Game data re-loaded.</div></body></html>')
 				#template = JINJA_ENVIRONMENT.get_template('foot.html')
 				#self.response.write(template.render(path, {}))
 			else:
