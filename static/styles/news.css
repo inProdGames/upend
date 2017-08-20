@@ -1,7 +1,9 @@
-.newsPost header {
-	font-size:16pt;
-	font-weight:bold;
+.news-post h2 {
+	font-size: 150%;
+	margin-bottom: 0;
+	font-weight: bold;
 }
-.newsPost aside {
-	font-size:8pt;
+.news-post aside {
+	font-size: 75%;
+	opacity: 0.75;
 }

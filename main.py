@@ -30,7 +30,11 @@ class HomePage(webapp2.RequestHandler):
 
 class NewsPage(webapp2.RequestHandler):
 	def get(self):
-		templateVars = {'title':'News','description':'The latest news at Inverted Productions'}
+		templateVars = {
+			'title': 'News',
+			'description': 'The latest news at Inverted Productions',
+			'styles': 'news'
+		}
 		
 		template = JINJA_ENVIRONMENT.get_template('head.html')
 		self.response.write(template.render(templateVars))
