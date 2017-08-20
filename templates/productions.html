@@ -95,70 +95,6 @@
 			}
 			window.onload = init;
 		</script>
-		<style type="text/css">
-			a.gamelink {
-				text-decoration:none;
-				color:black;
-			}
-			.gamelink:hover {
-				text-decoration:underline;
-				color:#808080;
-			}
-			.gamelink:active {
-				color:#404040;
-			}
-			
-			#gamesTable {
-				display:block;
-				text-align:center;
-				vertical-align:middle;
-				position:relative;
-				border-style:none;
-			}
-			th {
-				margin:0;
-				padding:2px;
-			}
-			td {
-				margin:0;
-				padding:8px;
-			}
-			tr {
-				border-bottom-style:solid;
-				border-bottom-color:black;
-				border-bottom-width:1px;
-			}
-			#gamesTable svg {
-				width: 24px;
-				height: 24px;
-				transform: scale(1.5);
-			}
-			
-			.nameCol {
-				text-align:left;
-				vertical-align:top;
-			}
-			
-			#topRow {
-				border-bottom-style:none;
-			}
-			.colHead {
-				background-color:#B0B0B0;
-				background-image:-webkit-gradient(linear, left top, left bottom, from(#E0E0E0), to(#A0A0A0));
-				background-image:-webkit-linear-gradient(#E0E0E0, #A0A0A0);
-				background-image:   -moz-linear-gradient(#E0E0E0, #A0A0A0);
-				background-image:    -ms-linear-gradient(#E0E0E0, #A0A0A0);
-				background-image:     -o-linear-gradient(#E0E0E0, #A0A0A0);
-				background-image:        linear-gradient(#E0E0E0, #A0A0A0);
-				    filter: progid:DXImageTransform.Microsoft.Gradient(gradientType=0, startColor=#E0E0E0, endColor=#A0A0A0);
-				-ms-filter:"progid:DXImageTransform.Microsoft.Gradient(gradientType=0, startColor=#E0E0E0, endColor=#A0A0A0)";
-				cursor:pointer;
-			}
-			.active {
-				background-color:lightGray;
-				background-image:none;
-			}
-		</style>
 		<div class="main">
 			<table id="gamesTable" cellspacing="1" cellpadding="0">
 				<tr id="topRow">
@@ -175,12 +111,12 @@
 				</tr>
 				<tr id="fastGameRow">
 					<td>
-						<a class="gamelink" href="/games/fastgame">
+						<a href="/games/fastgame">
 							<img src="/static/images/games/thumbs/fastgame_small.png"/>
 						</a>
 					</td>
 					<td class="nameCol">
-						<a class="gamelink" href="/games/fastgame">
+						<a href="/games/fastgame">
 							<h2>The Fast Game</h2>
 							A fast-paced tile game
 						</a>
@@ -197,12 +133,12 @@
 				</tr>
 				<tr id="icrRow">
 					<td>
-						<a href="/games/icr" class="gamelink">
+						<a href="/games/icr">
 							<img src="/static/images/games/thumbs/icr_small.png"/>
 						</a>
 					</td>
 					<td class="nameCol">
-						<a href="/games/icr" class="gamelink">
+						<a href="/games/icr">
 							<h2>Inverse Cube Runner</h2>
 							<i>Cube Runner</i> from the other perspective
 						</a>
@@ -219,13 +155,13 @@
 				</tr>
 				<tr id="icrplusRow">
 					<td>
-						<a href="/games/icrplus" class="gamelink">
+						<a href="/games/icrplus">
 							<br/>
 							<img src="/static/images/games/thumbs/icrplus_small.png"/>
 						</a>
 					</td>
 					<td class="nameCol">
-						<a href="/games/icrplus" class="gamelink">
+						<a href="/games/icrplus">
 							<h2>Inverse Cube Runner Plus</h2>
 							<i>Cube Runner</i> from the other perspective - with new graphics and better browser support
 						</a>
@@ -242,13 +178,13 @@
 				</tr>
 				<tr id="imdRow">
 					<td>
-						<a href="/games/imd" class="gamelink">
+						<a href="/games/imd">
 							<br/>
 							<img src="/static/images/games/thumbs/imd_small.png"/>
 						</a>
 					</td>
 					<td class="nameCol">
-						<a href="/games/imd" class="gamelink">
+						<a href="/games/imd">
 							<h2>Inverse Missile Defense</h2>
 							<i>Missile Defense</i> from the other perspective
 						</a>
@@ -265,12 +201,12 @@
 				</tr>
 				<tr id="lagrangeRow">
 					<td>
-						<a href="/games/lagrange" class="gamelink">
+						<a href="/games/lagrange">
 							<img src="/static/images/games/thumbs/lagrange_small.png"/>
 						</a>
 					</td>
 					<td class="nameCol">
-						<a href="/games/lagrange" class="gamelink">
+						<a href="/games/lagrange">
 							<h2>Lagrange</h2>
 							A fun physics shooter
 						</a>
@@ -289,11 +225,11 @@
 				</tr>
 				<tr id="ltdRow">
 					<td>
-						<a class="gamelink" href="/games/ltd">
+						<a href="/games/ltd">
 							<img src="/static/images/games/thumbs/ltd_small.png"/>
 						</a>
 					<td class="nameCol">
-						<a class="gamelink" href="/games/ltd">
+						<a href="/games/ltd">
 							<h2>Legitimate Tower Defense</h2>
 							A new way to look at tower defense
 						</a>
@@ -305,7 +241,7 @@
 						</svg>
 					</td>
 					<td style="color:green;">
-						&ldquo;Complete&rdquo;
+						Released April 2009
 					</td>
 				</tr>
 				<tr id="smtrRow">
@@ -314,7 +250,7 @@
 						</a>
 					</td>
 					<td class="nameCol">
-						<a href="/games/smtr" class="gamelink">
+						<a href="/games/smtr">
 							<h2>StickMan: The Reckoning</h2>
 						</a>
 					</td>
@@ -332,7 +268,7 @@
 					<td>
 					</td>
 					<td class="nameCol">
-						<a href="/games/tpg" class="gamelink">
+						<a href="/games/tpg">
 							<h2>The Two-Player Game</h2>
 							A game for two players
 						</a>
