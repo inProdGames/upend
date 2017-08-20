@@ -8,7 +8,7 @@
 				<p>Sorry, we could not find that page, but here is a game instead.  Whenever you finish, you can <a href="/games/{{ game.id }}">visit its page</a> or <a href="/">go back to the inProd home page</a>.</p>
 				<br />
 				<center>
-					{{ game.embedCode }}
+					{{ game.embedCode|safe }}
 				</center>
 			{% else %}
 				<p>Sorry, we could not find that page.  Please check to be sure you entered the URL correctly, or <a href="/">go back to the inProd home page</a>.</p>
