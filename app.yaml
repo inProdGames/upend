@@ -1,5 +1,5 @@
 application: inprodsite
-version: 2
+version: upend
 runtime: python27
 api_version: 1
 threadsafe: true
