@@ -1,5 +1,5 @@
 .tagline {
-	font-size: 175%;
+	font-size: 125%;
 	font-weight: bold;
 }
 
@@ -55,6 +55,16 @@
 			margin-top: 0;
 		}
 
+@media (min-width: 412px) {
+	.tagline {
+		font-size: 150%;
+	}
+}
+@media (min-width: 560px) {
+	.tagline {
+		font-size: 175%;
+	}
+}
 @media (min-width: 1320px) {
 	.feature-row {
 		width: 50%;
