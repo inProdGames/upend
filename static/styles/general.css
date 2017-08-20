@@ -15,9 +15,10 @@ body {
 }
 h1 {
 	color: #050505;
-	font-size: 300%;
+	font-size: 250%;
 	font-weight: bold;
 	text-align: center;
+	margin: 0;
 }
 sup,
 sub {
@@ -63,28 +64,8 @@ hr {
 	padding: 8px;
 }
 
-/* Old site styles */
-.game {
-	margin-left:auto;
-	margin-right:auto;
-	text-align:center;
-	
-	height:auto;
-}
-.share {
-	vertical-align:center;
-}
-td.share {
-	margin:8px;
-}
-.feedback {
-	border-left-style:solid;
-	border-left-width:1px;
-	border-left-color:lightgray;
-	
-	background-image:url(/public/images/icons/envelope.png);
-	background-repeat:no-repeat;
-	background-position:center center;
-	
-	text-align:center;
+@media (min-width: 760px) {
+	h1 {
+		font-size: 300%;
+	}
 }

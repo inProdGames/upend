@@ -7,7 +7,7 @@ import webapp2
 
 from random import shuffle
 
-from games import Game
+from models import Game
 
 JINJA_ENVIRONMENT = jinja2.Environment(
 	loader=jinja2.FileSystemLoader(os.path.join(os.path.dirname(__file__), 'templates/')),

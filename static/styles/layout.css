@@ -98,6 +98,11 @@ body {
 		display: block;
 	}
 
+header {
+	text-align: center;
+	margin: 0;
+}
+
 .main {
 	display: block;
 	width: 100%;
@@ -159,6 +164,10 @@ body {
 			.nav-link:active::before {
 				color: hsl(0, 0%, 30%);
 			}
+	
+	header {
+		margin-top: 96px;
+	}
 }
 @media (min-width: 760px) {
 	/*.logo {

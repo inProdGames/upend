@@ -1,55 +1,48 @@
 # -*- coding: utf-8 -*-
 
 import os
-import urllib
-
-from google.appengine.ext import db
 
 import jinja2
 import webapp2
+
+from models import Game
 
 JINJA_ENVIRONMENT = jinja2.Environment(
 	loader=jinja2.FileSystemLoader(os.path.join(os.path.dirname(__file__), 'templates/')),
 	extensions=['jinja2.ext.autoescape'],
 	autoescape=True)
 
-class Game(db.Model):
-	id = db.StringProperty()
-	title = db.StringProperty()
-	description = db.TextProperty()
-	embedCode = db.TextProperty()
-	releaseDate = db.StringProperty()
-	version = db.StringProperty()
-	status = db.StringProperty()
-	credits = db.TextProperty()
-	changelog = db.TextProperty()
-
 class GamePage(webapp2.RequestHandler):
 	def get(self, id):
 		if id[-11:] == '/index.html':
 			id = id[:-11]
 		
-		gameInfo = Game.gql('WHERE id = :1', id).get()
-		
-		templateVars = {'id':id}
-		for var in ['title','description','embedCode','releaseDate','version','status','credits','changelog']:
-			if getattr(gameInfo, var, None) != None:
-				templateVars[var] = getattr(gameInfo, var, None)
+		game = Game.gql('WHERE id = :1', id).get()
 		
 		template = JINJA_ENVIRONMENT.get_template('head.html')
-		self.response.write(template.render(templateVars))
-		if gameInfo != None:
+		self.response.write(template.render({
+			'title': game.title,
+			'description': game.description,
+			'styles': 'game'
+		}))
+		if game != None:
 			template = JINJA_ENVIRONMENT.get_template('game.html')
-			self.response.write(template.render(templateVars))
+			self.response.write(template.render({
+				'game': game
+			}))
 		else:
 			template = JINJA_ENVIRONMENT.get_template('404.html')
-			self.response.write(template.render(templateVars))
+			self.response.write(template.render({}))
 		template = JINJA_ENVIRONMENT.get_template('foot.html')
 		self.response.write(template.render({}))
 
 class GamesList(webapp2.RequestHandler):
 	def get(self):
-		templateVars = {'title':'Productions','description':'Games and other productions by Inverted Productions'}
+		templateVars = {
+			'title':'Games',
+			'description':'Games and other productions by Inverted Productions',
+			'styles': 'productions'
+		}
 		
 		template = JINJA_ENVIRONMENT.get_template('head.html')
 		self.response.write(template.render(templateVars))
