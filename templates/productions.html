@@ -1,97 +1,68 @@
 		<script type="text/javascript">
-			var gamesTable;
-			
-			var nameHead;
-			var typeHead;
-			var topRow;
-			
-			// these are in order by date added
-			var ltdRow;
-			var smtrRow;
-			var icrRow;
-			var lagrangeRow;
-			var tpgRow;
-			var fastGameRow;
-			var icrplusRow;
-			var imdRow;
+			var productionsList,
+				topRow,
+				nameHead,
+				typeHead,
+				statusHead,
+				rows = [];
 			
 			function init() {
-				gamesTable = document.getElementById("gamesTable");
+				productionsList = document.getElementById('productions-list');
 				
-				nameHead = document.getElementById("nameHead");
-				typeHead = document.getElementById("typeHead");
-				statusHead = document.getElementById("statusHead");
-				topRow = document.getElementById("topRow");
+				topRow = productionsList.querySelector('tr');
+				rows = Array.prototype.slice.call(productionsList.querySelectorAll('tr'), 1);
 				
-				fastGameRow = document.getElementById("fastGameRow");
-				ltdRow = document.getElementById("ltdRow");
-				icrRow = document.getElementById("icrRow");
-				//icrplusRow = document.getElementById("icrplusRow");
-				imdRow = document.getElementById("imdRow");
-				lagrangeRow = document.getElementById("lagrangeRow");
-				tpgRow = document.getElementById("tpgRow");
-				smtrRow = document.getElementById("smtrRow");
+				nameHead = document.getElementById('header-name');
+				typeHead = document.getElementById('header-type');
+				statusHead = document.getElementById('header-status');
+				
+				sortByTitle();
 			}
-			function sortByName() {
-				/*nameHead.style.backgroundImage = 'none';
-				typeHead.style.backgroundImage = 'url("../imgs/gray_gradient.png")';
-				statusHead.style.backgroundImage = 'url("../imgs/gray_gradient.png")';*/
-				nameHead.className = "colHead active";
-				typeHead.className = "colHead";
-				statusHead.className = "colHead";
+			function sortByTitle() {
+				nameHead.classList.add('active');
+				typeHead.classList.remove('active');
+				statusHead.classList.remove('active');
 				
-				gamesTable.innerHTML = "";
-				gamesTable.appendChild(topRow);
+				rows.sort(function (a, b) {
+					var aTitle = a.querySelector('.column-title h2').textContent,
+						bTitle = b.querySelector('.column-title h2').textContent;
+					return aTitle > bTitle;
+				});
 				
-				gamesTable.appendChild(fastGameRow);
-				gamesTable.appendChild(icrRow);
-				//gamesTable.appendChild(icrplusRow);
-				gamesTable.appendChild(imdRow);
-				gamesTable.appendChild(lagrangeRow);
-				gamesTable.appendChild(ltdRow);
-				gamesTable.appendChild(smtrRow);
-				gamesTable.appendChild(tpgRow);
+				repopulateList();
 			}
 			function sortByType() {
-				/*nameHead.style.backgroundImage = 'url("../imgs/gray_gradient.png")';
-				typeHead.style.backgroundImage = 'none';
-				statusHead.style.backgroundImage = 'url("../imgs/gray_gradient.png")';*/
-				nameHead.className = "colHead";
-				typeHead.className = "colHead active";
-				statusHead.className = "colHead";
+				nameHead.classList.remove('active');
+				typeHead.classList.add('active');
+				statusHead.classList.remove('active');
 				
-				gamesTable.innerHTML = "";
-				gamesTable.appendChild(topRow);
+				rows.sort(function (a, b) {
+					var aType = a.querySelector('.column-type title').textContent,
+						bType = b.querySelector('.column-type title').textContent;
+					return aType > bType;
+				});
 				
-				gamesTable.appendChild(fastGameRow);
-				gamesTable.appendChild(imdRow);
-				gamesTable.appendChild(ltdRow);
-				gamesTable.appendChild(smtrRow);
-				gamesTable.appendChild(tpgRow);
-				//gamesTable.appendChild(icrplusRow);
-				gamesTable.appendChild(icrRow);
-				gamesTable.appendChild(lagrangeRow);
-				
+				repopulateList();
 			}
 			function sortByStatus() {
-				/*nameHead.style.backgroundImage = 'url("../imgs/gray_gradient.png")';
-				typeHead.style.backgroundImage = 'url("../imgs/gray_gradient.png")';
-				statusHead.style.backgroundImage = 'none';*/
-				nameHead.className = "colHead";
-				typeHead.className = "colHead";
-				statusHead.className = "colHead active";
+				nameHead.classList.remove('active');
+				typeHead.classList.remove('active');
+				statusHead.classList.add('active');
 				
-				gamesTable.innerHTML = "";
-				gamesTable.appendChild(topRow);
+				rows.sort(function (a, b) {
+					var aStatus = a.querySelector('.column-status').dataset.sortValue,
+						bStatus = b.querySelector('.column-status').dataset.sortValue;
+					return aStatus > bStatus;
+				});
 				
-				gamesTable.appendChild(icrRow);
-				gamesTable.appendChild(ltdRow);
-				gamesTable.appendChild(fastGameRow);
-				//gamesTable.appendChild(icrplusRow);
-				gamesTable.appendChild(imdRow);
-				gamesTable.appendChild(lagrangeRow);
-				gamesTable.appendChild(tpgRow);
-				gamesTable.appendChild(smtrRow);
+				repopulateList();
+			}
+			function repopulateList() {
+				productionsList.innerHTML = '';
+				productionsList.appendChild(topRow);
+				rows.forEach(function (row) {
+					productionsList.appendChild(row);
+				});
 			}
 			window.onload = init;
 		</script>
@@ -99,191 +70,129 @@
 			<h1>Productions</h1>
 		</header>
 		<div class="main">
-			<table id="gamesTable" cellspacing="1" cellpadding="0">
-				<tr id="topRow">
+			<table id="productions-list" cellspacing="1" cellpadding="0">
+				<tr>
 					<th></th>
-					<th id="nameHead" class="colHead active" onClick="sortByName()">
-						Name
+					<th id="header-name" class="column-head" onclick="sortByTitle();">
+						Title
 					</th>
-					<th id="typeHead" class="colHead" onClick="sortByType()">
+					<th id="header-type" class="column-head" onclick="sortByType();">
 						Type
 					</th>
-					<th id="statusHead" class="colHead" onClick="sortByStatus()">
+					<th id="header-status" class="column-head" onclick="sortByStatus();">
 						Status
 					</th>
 				</tr>
-				<tr id="fastGameRow">
-					<td>
-						<a href="/games/fastgame">
-							<img src="/static/images/games/thumbs/fastgame_small.png"/>
+				<tr>
+					<td class="column-thumb">
+						<a href="/games/bananasplit">
+							<img src="/static/images/games/thumbs/bananasplit_small.png"/>
 						</a>
 					</td>
-					<td class="nameCol">
-						<a href="/games/fastgame">
-							<h2>The Fast Game</h2>
-							A fast-paced tile game
+					<td class="column-title">
+						<a href="/games/bananasplit">
+							<h2>Banana Split</h2>
+							A sweet twist of third-person shooter and real-time strategy action
 						</a>
 					</td>
-					<td>
-						<svg role="img">
-							<title>Flash</title>
-							<use xlink:href="/static/images/icons/flash.svg#icon"></use>
-						</svg>
-					</td>
-					<td style="color:blue;">
-						Beta
-					</td>
-				</tr>
-				<tr id="icrRow">
-					<td>
-						<a href="/games/icr">
-							<img src="/static/images/games/thumbs/icr_small.png"/>
-						</a>
-					</td>
-					<td class="nameCol">
-						<a href="/games/icr">
-							<h2>Inverse Cube Runner</h2>
-							<i>Cube Runner</i> from the other perspective
-						</a>
-					</td>
-					<td>
-						<svg role="img">
-							<title>Java</title>
-							<use xlink:href="/static/images/icons/java.svg#icon"></use>
-						</svg>
-					</td>
-					<td style="color:green;">
-						Released February&nbsp;2010
-					</td>
-				</tr>
-				<tr id="icrplusRow">
-					<td>
-						<a href="/games/icrplus">
-							<br/>
-							<img src="/static/images/games/thumbs/icrplus_small.png"/>
-						</a>
-					</td>
-					<td class="nameCol">
-						<a href="/games/icrplus">
-							<h2>Inverse Cube Runner Plus</h2>
-							<i>Cube Runner</i> from the other perspective - with new graphics and better browser support
-						</a>
-					</td>
-					<td>
+					<td class="column-type">
 						<svg role="img">
 							<title>HTML5</title>
 							<use xlink:href="/static/images/icons/html5.svg#icon"></use>
 						</svg>
 					</td>
-					<td style="color:blue;">
-						Beta
+					<td class="column-status" style="color: #404040;" data-sort-value="dev">
+						In development
 					</td>
 				</tr>
-				<tr id="imdRow">
-					<td>
-						<a href="/games/imd">
-							<br/>
-							<img src="/static/images/games/thumbs/imd_small.png"/>
+				<tr>
+					<td class="column-thumb">
+						<a href="/games/icr">
+							<img src="/static/images/games/thumbs/icr_small.png"/>
 						</a>
 					</td>
-					<td class="nameCol">
-						<a href="/games/imd">
-							<h2>Inverse Missile Defense</h2>
-							<i>Missile Defense</i> from the other perspective
+					<td class="column-title">
+						<a href="/games/icr">
+							<h2>Inverse Cube Runner</h2>
+							<i>Cube Runner</i> from the other perspective
 						</a>
 					</td>
-					<td>
-						<svg role="img">
-							<title>Flash</title>
-							<use xlink:href="/static/images/icons/flash.svg#icon"></use>
-						</svg>
-					</td>
-					<td style="color:blue;">
-						Beta
-					</td>
-				</tr>
-				<tr id="lagrangeRow">
-					<td>
-						<a href="/games/lagrange">
-							<img src="/static/images/games/thumbs/lagrange_small.png"/>
-						</a>
-					</td>
-					<td class="nameCol">
-						<a href="/games/lagrange">
-							<h2>Lagrange</h2>
-							A fun physics shooter
-						</a>
-					</td>
-					<td>
+					<td class="column-type">
 						<svg role="img">
 							<title>Java</title>
 							<use xlink:href="/static/images/icons/java.svg#icon"></use>
 						</svg>
 					</td>
-
-
-					<td style="color:#404040;">
-						Alpha
+					<td class="column-status" style="color: green;" data-sort-value="2010-02">
+						Released February&nbsp;2010
 					</td>
 				</tr>
-				<tr id="ltdRow">
-					<td>
+				<tr>
+					<td class="column-thumb">
+						<a href="/games/icrplus">
+							<br/>
+							<img src="/static/images/games/thumbs/icrplus_small.png"/>
+						</a>
+					</td>
+					<td class="column-title">
+						<a href="/games/icrplus">
+							<h2>Inverse Cube Runner Plus</h2>
+							<i>Cube Runner</i> from the other perspective - with new graphics and better browser support
+						</a>
+					</td>
+					<td class="column-type">
+						<svg role="img">
+							<title>HTML5</title>
+							<use xlink:href="/static/images/icons/html5.svg#icon"></use>
+						</svg>
+					</td>
+					<td class="column-status" style="color: blue;" data-sort-value="beta">
+						Beta
+					</td>
+				</tr>
+				<tr>
+					<td class="column-thumb">
+						<a href="/games/imd">
+							<br/>
+							<img src="/static/images/games/thumbs/imd_small.png"/>
+						</a>
+					</td>
+					<td class="column-title">
+						<a href="/games/imd">
+							<h2>Inverse Missile Defense</h2>
+							<i>Missile Command</i> from the other perspective
+						</a>
+					</td>
+					<td class="column-type">
+						<svg role="img">
+							<title>Flash</title>
+							<use xlink:href="/static/images/icons/flash.svg#icon"></use>
+						</svg>
+					</td>
+					<td class="column-status" style="color: blue;" data-sort-value="beta">
+						Beta
+					</td>
+				</tr>
+				<tr>
+					<td class="column-thumb">
 						<a href="/games/ltd">
 							<img src="/static/images/games/thumbs/ltd_small.png"/>
 						</a>
-					<td class="nameCol">
+					<td class="column-title">
 						<a href="/games/ltd">
 							<h2>Legitimate Tower Defense</h2>
-							A new way to look at tower defense
+							Defend your city's towers.  Legitimately.
+							<br />
 						</a>
 					</td>
-					<td>
+					<td class="column-type">
 						<svg role="img">
 							<title>Flash</title>
 							<use xlink:href="/static/images/icons/flash.svg#icon"></use>
 						</svg>
 					</td>
-					<td style="color:green;">
+					<td class="column-status" style="color: green;" data-sort-value="2009-04">
 						Released April&nbsp;2009
-					</td>
-				</tr>
-				<tr id="smtrRow">
-					<td>
-						<a href="smtr">
-						</a>
-					</td>
-					<td class="nameCol">
-						<a href="/games/smtr">
-							<h2>StickMan: The Reckoning</h2>
-						</a>
-					</td>
-					<td>
-						<svg role="img">
-							<title>Flash</title>
-							<use xlink:href="/static/images/icons/flash.svg#icon"></use>
-						</svg>
-					</td>
-					<td style="color:darkred;">
-						Shelved
-					</td>
-				</tr>
-				<tr id="tpgRow">
-					<td>
-					</td>
-					<td class="nameCol">
-						<a href="/games/tpg">
-							<h2>The Two-Player Game</h2>
-							A game for two players
-						</a>
-					</td>
-					<td class="typeCol">
-						<svg role="img">
-							<title>Flash</title>
-							<use xlink:href="/static/images/icons/flash.svg#icon"></use>
-						</svg>
-					</td>
-					<td class="statusCol" style="color:darkred;">
-						Shelved
 					</td>
 				</tr>
 			</table>
