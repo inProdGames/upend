@@ -4,7 +4,8 @@ from google.appengine.ext import ndb
 
 class Game(ndb.Model):
 	id = ndb.StringProperty()
-	types = ndb.StringProperty(repeated=True)
+	platforms = ndb.StringProperty(repeated=True)
+	tech = ndb.StringProperty(repeated=True)
 	title = ndb.StringProperty()
 	abbr_title = ndb.StringProperty()
 	description = ndb.TextProperty()

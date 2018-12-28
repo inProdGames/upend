@@ -32,22 +32,38 @@
 				</td>
 			</tr>
 			<tr>
-				<td>Type</td>
+				<td>Platforms</td>
 				<td colspan="2">
-					<select name="type" size="5" multiple="multiple">
-						<option value="android"{% if 'android' in game.types %} selected="selected"{% endif %}>
+					<select name="platforms" size="3" multiple="multiple">
+						<option value="android"{% if 'android' in game.platforms %} selected="selected"{% endif %}>
 							android
 						</option>
-						<option value="flash"{% if 'flash' in game.types %} selected="selected"{% endif %}>
+						<option value="web"{% if 'web' in game.platforms %} selected="selected"{% endif %}>
+							web
+						</option>
+						<option value="windows"{% if 'windows' in game.platforms %} selected="selected"{% endif %}>
+							windows
+						</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Tech.</td>
+				<td colspan="2">
+					<select name="tech" size="5" multiple="multiple">
+						<option value="flash"{% if 'flash' in game.tech %} selected="selected"{% endif %}>
 							flash
 						</option>
-						<option value="html5"{% if 'html5' in game.types %} selected="selected"{% endif %}>
+						<option value="html5"{% if 'html5' in game.tech %} selected="selected"{% endif %}>
 							html5
 						</option>
-						<option value="java"{% if 'java' in game.types %} selected="selected"{% endif %}>
+						<option value="java"{% if 'java' in game.tech %} selected="selected"{% endif %}>
 							java
 						</option>
-						<option value="windows"{% if 'windows' in game.types %} selected="selected"{% endif %}>
+						<option value="unity"{% if 'unity' in game.tech %} selected="selected"{% endif %}>
+							unity
+						</option>
+						<option value="windows"{% if 'windows' in game.tech %} selected="selected"{% endif %}>
 							windows
 						</option>
 					</select>
