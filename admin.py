@@ -3,6 +3,7 @@
 import os
 
 from google.appengine.api import users
+from google.appengine.ext import db
 
 import jinja2
 import webapp2
@@ -296,6 +297,85 @@ class EditGamePage(webapp2.RequestHandler):
 		else:
 			template_vars['title'] = (game.title or game.id) + ' - inProd Admin'
 			template_vars['game'] = game
+		
+		template = JINJA_ENVIRONMENT.get_template('head.html')
+		self.response.write(template.render(template_vars))
+		template = JINJA_ENVIRONMENT.get_template('admin/edit.html')
+		self.response.write(template.render(template_vars))
+		template = JINJA_ENVIRONMENT.get_template('foot.html')
+		self.response.write(template.render({}))
+		
+	def post(self, params):
+		if not users.is_current_user_admin():
+			self.response.write('Error 401: Unauthorized')
+			self.error(401)
+			return
+		
+		old_id = self.request.get('old-id')
+		
+		# Get the game entry, if there is one.
+		game = Game.query(Game.id == old_id).get()
+		
+		# If this is a new game ID, create a new game entry.
+		if not game:
+			game = Game()
+		
+		# Set all the basic properties.
+		game.id = self.request.get('id')
+		game.types = self.request.get_all('type')
+		game.title = self.request.get('title')
+		game.abbr_title = self.request.get('abbr-title')
+		game.description = self.request.get('description')
+		game.embed_code = self.request.get('embed-code')
+		game.release_date = self.request.get('release-date')
+		game.version = self.request.get('version')
+		game.status = self.request.get('status')
+		game.credits = self.request.get('credits')
+		game.changelog = self.request.get('changelog')
+		
+		game.facebook_url = self.request.get('facebook-url')
+		game.gplus_url = self.request.get('gplus-url')
+		game.instagram_url = self.request.get('instagram-url')
+		game.twitter_url = self.request.get('twitter-url')
+		
+		game.visible = (self.request.get('visible') == 'on')
+		try:
+			game.feature_rank = int(self.request.get('feature-rank'))
+		except:
+			print 'Submitted feature rank was not an integer.'
+		
+		# Update the icon if a new one was uploaded.
+		icon = self.request.get('icon')
+		if icon:
+			game.icon = db.Blob(icon.encode('utf-8'))
+		
+		thumbnails = self.request.get_all('thumbnail')
+		screenshots = self.request.get_all('screenshot')
+		for i in range(len(thumbnails)):
+			# Skip any where no thumbnail was uploaded.
+			if i < len(thumbnails) and thumbnails[i]:
+				thumbnail_blob = db.Blob(thumbnails[i].encode('utf-8'))
+				if i < len(game.thumbnails):
+					game.thumbnails[i] = thumbnail_blob
+				else:
+					game.thumbnails.append(thumbnail_blob)
+			
+			# Skip any where no screenshot was uploaded.
+			if i < len(screenshots) and screenshots[i]:
+				screenshot_blob = db.Blob(screenshots[i].encode('utf-8'))
+				if i < len(game.screenshots):
+					game.screenshots[i] = screenshot_blob
+				else:
+					game.screenshots.append(screenshot_blob)
+		
+		# Save the updated game entry.
+		game.put()
+		
+		# Show the edit page again.
+		template_vars = {
+			'title': (game.title or game.id) + ' - inProd Admin',
+			'game': game
+		}
 		
 		template = JINJA_ENVIRONMENT.get_template('head.html')
 		self.response.write(template.render(template_vars))

@@ -4,12 +4,11 @@ from google.appengine.ext import ndb
 
 class Game(ndb.Model):
 	id = ndb.StringProperty()
-	type = ndb.StringProperty(repeated=True)
+	types = ndb.StringProperty(repeated=True)
 	title = ndb.StringProperty()
+	abbr_title = ndb.StringProperty()
 	description = ndb.TextProperty()
-	embedCode = ndb.TextProperty()
 	embed_code = ndb.TextProperty()
-	releaseDate = ndb.StringProperty()
 	release_date = ndb.StringProperty()
 	version = ndb.StringProperty()
 	status = ndb.StringProperty()

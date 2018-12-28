@@ -7,7 +7,7 @@
 	</p>
 	<section class="game-embed">
 		<img src="/static/images/games/thumbs/{{ game.id }}.png" style="display:none;" alt="{{ title }}" />
-		{{ game.embedCode|safe }}
+		{{ game.embed_code|safe }}
 	</section>
 	<section class="game-share" cellpadding="8">
 		<div>
@@ -25,9 +25,9 @@
 		</div>
 	</section>
 	<section class="game-details">
-		{% if game.releaseDate %}
+		{% if game.release_date %}
 			<br />
-			Release date: {{ game.releaseDate|safe }}
+			Release date: {{ game.release_date|safe }}
 		{% endif %}
 		{% if game.version %}
 			<br />
