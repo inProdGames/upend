@@ -1,0 +1,211 @@
+<style type="text/css">
+	table {
+		width: 100%;
+	}
+	td {
+		vertical-align: top;
+		padding: 0.5em 0;
+	}
+	td img {
+		max-width: 256px;
+		max-height: 256px;
+	}
+	td input[type="text"],
+	td textarea {
+		width: 100%;
+	}
+</style>
+<header class="main">
+	<h1>ADMIN - EDIT GAME</h1>
+	{% if message %}
+		<p>{{ message }}</p>
+	{% endif %}
+</header>
+<div class="main">
+	<form action="" method="POST">
+		<input type="hidden" name="old-id"{% if game.id %} value="{{ game.id }}"{% endif %} />
+		<table cellspacing="1" cellpadding="0">
+			<tr>
+				<td>ID</td>
+				<td colspan="2">
+					<input type="text" name="id"{% if game.id %} value="{{ game.id }}"{% endif %} />
+				</td>
+			</tr>
+			<tr>
+				<td>Type</td>
+				<td colspan="2">
+					<select name="type" size="5">
+						<option value="android"{% if 'android' in game.type %} selected="selected"{% endif %}>
+							android
+						</option>
+						<option value="flash"{% if 'flash' in game.type %} selected="selected"{% endif %}>
+							flash
+						</option>
+						<option value="html5"{% if 'html5' in game.type %} selected="selected"{% endif %}>
+							html5
+						</option>
+						<option value="java"{% if 'java' in game.type %} selected="selected"{% endif %}>
+							java
+						</option>
+						<option value="windows"{% if 'windows' in game.type %} selected="selected"{% endif %}>
+							windows
+						</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Title</td>
+				<td colspan="2">
+					<input type="text" name="title"{% if game.title %} value="{{ game.title }}"{% endif %} />
+				</td>
+			</tr>
+			<tr>
+				<td>Description</td>
+				<td colspan="2">
+					<textarea type="text" name="description">{% if game.description %}{{ game.description }}{% endif %}</textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>Embed code</td>
+				<td colspan="2">
+					<textarea type="text" name="embed-code">{% if game.embed_code %}{{ game.embed_code }}{% endif %}</textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>Release date</td>
+				<td colspan="2">
+					<input type="text" name="release-date"{% if game.release_date %} value="{{ game.release_date }}"{% endif %} />
+				</td>
+			</tr>
+			<tr>
+				<td>Version</td>
+				<td colspan="2">
+					<input type="text" name="version"{% if game.version %} value="{{ game.version }}"{% endif %} />
+				</td>
+			</tr>
+			<tr>
+				<td>Status</td>
+				<td colspan="2">
+					<select name="status" size="4">
+						<option value="Released"{% if game.status == 'Released' %} selected="selected"{% endif %}>
+							Released
+						</option>
+						<option value="&ldquo;Complete&rdquo;"{% if game.status == '&ldquo;Complete&rdquo;' %} selected="selected"{% endif %}>
+							&ldquo;Complete&rdquo;
+						</option>
+						<option value="Work-in-progress"{% if game.status == 'Work-in-progress' %} selected="selected"{% endif %}>
+							Work-in-progress
+						</option>
+						<option value="Work-in-progress"{% if game.status == 'Work-in-progress' %} selected="selected"{% endif %}>
+							Shelved
+						</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Credits</td>
+				<td colspan="2">
+					<textarea type="text" name="credits" style="font-family: monospace;">{% if game.credits %}{{ game.credits }}{% endif %}</textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>Changelog</td>
+				<td colspan="2">
+					<textarea type="text" name="changelog" style="font-family: monospace;">{% if game.changelog %}{{ game.changelog }}{% endif %}</textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>Icon</td>
+				<td colspan="2">
+					<input type="file" name="icon" />
+					<br />
+					<img src="{% if game.id %}/gameassets/icons/{{ game.id }}.png{% endif %}" alt="Icon is {% if game.icon %}set{% else %}not set{% endif %}" />
+				</td>
+			</tr>
+			<tr>
+				<td>Screenshot 0</td>
+				<td>
+					Thumb: <input type="file" name="thumb0" />
+					<br />
+					<img src="{% if game.id %}/gameassets/thumbnails/{{ game.id }}0.png{% endif %}" alt="Thumbnail 0 is {% if game.thumbnails[0] %}set{% else %}not set{% endif %}" />
+				</td>
+				<td>
+					Full: <input type="file" name="screenshot0" />
+					<img src="{% if game.id %}/gameassets/screenshots/{{ game.id }}0.png{% endif %}" alt="Screenshot 0 is {% if game.screenshots[0] %}set{% else %}not set{% endif %}" />
+				</td>
+			</tr>
+			<tr>
+				<td>Screenshot 1</td>
+				<td>
+					Thumb: <input type="file" name="thumb1" />
+					<br />
+					<img src="{% if game.id %}/gameassets/thumbnails/{{ game.id }}1.png{% endif %}" alt="Thumbnail 1 is {% if game.thumbnails[1] %}set{% else %}not set{% endif %}" />
+				</td>
+				<td>
+					Full: <input type="file" name="screenshot1" />
+					<img src="{% if game.id %}/gameassets/screenshots/{{ game.id }}1.png{% endif %}" alt="Screenshot 1 is {% if game.screenshots[1] %}set{% else %}not set{% endif %}" />
+				</td>
+			</tr>
+			<tr>
+				<td>Screenshot 2</td>
+				<td>
+					Thumb: <input type="file" name="thumb2" />
+					<br />
+					<img src="{% if game.id %}/gameassets/thumbnails/{{ game.id }}2.png{% endif %}" alt="Thumbnail 2 is {% if game.thumbnails[2] %}set{% else %}not set{% endif %}" />
+				</td>
+				<td>
+					Full: <input type="file" name="screenshot2" />
+					<img src="{% if game.id %}/gameassets/screenshots/{{ game.id }}2.png{% endif %}" alt="Screenshot 2 is {% if game.screenshots[2] %}set{% else %}not set{% endif %}" />
+				</td>
+			</tr>
+			<tr>
+				<td>Screenshot 3</td>
+				<td>
+					Thumb: <input type="file" name="thumb3" />
+					<br />
+					<img src="{% if game.id %}/gameassets/thumbnails/{{ game.id }}3.png{% endif %}" alt="Thumbnail 3 is {% if game.thumbnails[3] %}set{% else %}not set{% endif %}" />
+				</td>
+				<td>
+					Full: <input type="file" name="screenshot3" />
+					<img src="{% if game.id %}/gameassets/screenshots/{{ game.id }}3.png{% endif %}" alt="Screenshot 3 is {% if game.screenshots[3] %}set{% else %}not set{% endif %}" />
+				</td>
+			</tr>
+			<tr>
+				<td>Screenshot 4</td>
+				<td>
+					Thumb: <input type="file" name="thumb4" />
+					<br />
+					<img src="{% if game.id %}/gameassets/thumbnails/{{ game.id }}4.png{% endif %}" alt="Thumbnail 4 is {% if game.thumbnails[4] %}set{% else %}not set{% endif %}" />
+				</td>
+				<td>
+					Full: <input type="file" name="screenshot4" />
+					<img src="{% if game.id %}/gameassets/screenshots/{{ game.id }}4.png{% endif %}" alt="Screenshot 4 is {% if game.screenshots[4] %}set{% else %}not set{% endif %}" />
+				</td>
+			</tr>
+			<tr>
+				<td>Screenshot 5</td>
+				<td>
+					Thumb: <input type="file" name="thumb5" />
+					<br />
+					<img src="{% if game.id %}/gameassets/thumbnails/{{ game.id }}5.png{% endif %}" alt="Thumbnail 5 is {% if game.thumbnails[5] %}set{% else %}not set{% endif %}" />
+				</td>
+				<td>
+					Full: <input type="file" name="screenshot5" />
+					<img src="{% if game.id %}/gameassets/screenshots/{{ game.id }}5.png{% endif %}" alt="Screenshot 5 is {% if game.screenshots[5] %}set{% else %}not set{% endif %}" />
+				</td>
+			</tr>
+			<tr>
+				<td>Visible</td>
+				<td colspan="2">
+					<input type="checkbox" name="visible"{% if game.visible %} checked="checked"{% endif %} />
+				</td>
+			</tr>
+			<tr>
+				<td>Feature rank</td>
+				<td colspan="2">
+					<input type="number" name="feature-rank" min="-1" step="1"{% if game.feature_rank %} value="{{ game.feature_rank }}"{% endif %} />
+				</td>
+			</tr>
+		</table>
+	</form>
+</div>

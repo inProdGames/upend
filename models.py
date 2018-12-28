@@ -1,23 +1,29 @@
 # -*- coding: utf-8 -*-
 
-from google.appengine.ext import db
+from google.appengine.ext import ndb
 
-class Game(db.Model):
-	id = db.StringProperty()
-	title = db.StringProperty()
-	description = db.TextProperty()
-	embedCode = db.TextProperty()
-	releaseDate = db.StringProperty()
-	version = db.StringProperty()
-	status = db.StringProperty()
-	credits = db.TextProperty()
-	changelog = db.TextProperty()
-	type = db.StringProperty()
+class Game(ndb.Model):
+	id = ndb.StringProperty()
+	type = ndb.StringProperty(repeated=True)
+	title = ndb.StringProperty()
+	description = ndb.TextProperty()
+	embedCode = ndb.TextProperty()
+	embed_code = ndb.TextProperty()
+	releaseDate = ndb.StringProperty()
+	release_date = ndb.StringProperty()
+	version = ndb.StringProperty()
+	status = ndb.StringProperty()
+	credits = ndb.TextProperty()
+	changelog = ndb.TextProperty()
 	
-	facebook_url = db.StringProperty()
-	gplus_url = db.StringProperty()
-	instagram_url = db.StringProperty()
-	twitter_url = db.StringProperty()
+	icon = ndb.BlobProperty()
+	thumbnails = ndb.BlobProperty(repeated=True)
+	screenshots = ndb.BlobProperty(repeated=True)
 	
-	visible = db.BooleanProperty()
-	feature_rank = db.IntegerProperty()
+	facebook_url = ndb.StringProperty()
+	gplus_url = ndb.StringProperty()
+	instagram_url = ndb.StringProperty()
+	twitter_url = ndb.StringProperty()
+	
+	visible = ndb.BooleanProperty()
+	feature_rank = ndb.IntegerProperty()

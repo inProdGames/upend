@@ -32,7 +32,7 @@ class ReloadGameData(webapp2.RequestHandler):
 						'gplus_url':'https://plus.google.com/109028726682414400776',
 						'twitter_url':'https://twitter.com/BananaSplitFun',
 						'visible':True,
-						'feature_rank':1
+						'feature_rank':2
 					},
 					{
 						'id':'fastgame',
@@ -137,7 +137,7 @@ class ReloadGameData(webapp2.RequestHandler):
 							</ul>
 						''',
 						'visible':True,
-						'feature_rank': 3
+						'feature_rank': 5
 					},
 					{
 						'id':'icrplus',
@@ -198,7 +198,7 @@ class ReloadGameData(webapp2.RequestHandler):
 						'gplus_url': 'https://plus.google.com/116844040350643203041',
 						'twitter_url':'https://twitter.com/LegitimateTD',
 						'visible':True,
-						'feature_rank':2
+						'feature_rank':3
 					},
 					{
 						'id':'smtr',
@@ -221,7 +221,21 @@ class ReloadGameData(webapp2.RequestHandler):
 						'status':'Shelved',
 						'credits':'Created by <a href=\"/people#jfranzen\">Jack Franzen</a><br />Minigame design by <!--<a href=\"/people#deliasen\">Derek Eliasen</a>, --><a href=\"/people#jfranzen\">Jack Franzen</a><!--, John Renner, and Zachary Yaro -->',
 						'visible':False
-					}
+					},
+					{
+						'id':'workshopscramble',
+						'title':'Workshop Scramble',
+						'description':'Help the elves in Santa\'s workshop build toys for kids in this fast-paced game!\n\nKids around the world want toys for the holidays, so help the elves in the workshop put them together as fast as you can!  Each toy needs specific parts; put them together, and move them to the bottom conveyor belt to be shipped off.  It\'s a simple task that quickly turns into a fast-paced scramble to assemble all the toys in time!',
+						'embedCode':'<a class="twitter-timeline" data-width="480" data-height="640" href="https://twitter.com/WorkshopScrambl">Tweets by @WorkshopScrambl</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>',
+						'version':'1.0.181224.1',
+						'status':'Released December 2018',
+						'credits':'Created and developed by Zachary Yaro',
+						'facebook_url':'https://www.facebook.com/Workshop-Scramble-308846489966788',
+						'instagram_url':'https://www.instagram.com/WorkshopScramble',
+						'twitter_url':'https://twitter.com/WorkshopScrambl',
+						'visible':True,
+						'feature_rank':1
+					},
 				]
 				
 				for game in gameData:
@@ -243,12 +257,63 @@ class ReloadGameData(webapp2.RequestHandler):
 		else:
 			self.redirect(users.create_login_url(self.request.uri))
 
-class NotFoundPage(webapp2.RequestHandler):
+class GameListPage(webapp2.RequestHandler):
 	def get(self):
-		templateVars = {'title':'Not Found'}
+		if not users.is_current_user_admin():
+			self.response.write('Error 401: Unauthorized')
+			self.error(401)
+			return
+		
+		games = Game.query().order(Game.title).fetch(limit=None)
+		
+		template_vars = {
+			'title': 'Game List - inProd Admin',
+			'games': games
+		}
 		
 		template = JINJA_ENVIRONMENT.get_template('head.html')
-		self.response.write(template.render(templateVars))
+		self.response.write(template.render(template_vars))
+		template = JINJA_ENVIRONMENT.get_template('admin/list.html')
+		self.response.write(template.render(template_vars))
+		template = JINJA_ENVIRONMENT.get_template('foot.html')
+		self.response.write(template.render({}))
+
+class EditGamePage(webapp2.RequestHandler):
+	def get(self, params):
+		if not users.is_current_user_admin():
+			self.response.write('Error 401: Unauthorized')
+			self.error(401)
+			return
+		
+		req_id = self.request.get('id')
+		game = Game.query(Game.id == req_id).get()
+		
+		template_vars = {}
+		
+		if not game:
+			template_vars['title'] = 'Add Game - inProd Admin',
+			template_vars['game'] = Game()
+		else:
+			template_vars['title'] = (game.title or game.id) + ' - inProd Admin'
+			template_vars['game'] = game
+		
+		template = JINJA_ENVIRONMENT.get_template('head.html')
+		self.response.write(template.render(template_vars))
+		template = JINJA_ENVIRONMENT.get_template('admin/edit.html')
+		self.response.write(template.render(template_vars))
+		template = JINJA_ENVIRONMENT.get_template('foot.html')
+		self.response.write(template.render({}))
+
+class SignInRedirect(webapp2.RequestHandler):
+	def get(self):
+		self.redirect(users.create_login_url('/admin'))
+
+class NotFoundPage(webapp2.RequestHandler):
+	def get(self):
+		template_vars = {'title': 'Not Found'}
+		
+		template = JINJA_ENVIRONMENT.get_template('head.html')
+		self.response.write(template.render(template_vars))
 		template = JINJA_ENVIRONMENT.get_template('404.html')
 		self.response.write(template.render({}))
 		template = JINJA_ENVIRONMENT.get_template('foot.html')
@@ -257,6 +322,9 @@ class NotFoundPage(webapp2.RequestHandler):
 		self.response.set_status(404)
 
 site = webapp2.WSGIApplication([
-	('/admin/reloadgamedata', ReloadGameData),
+	('/admin/reloadgamedatayesireallywanttodothis', ReloadGameData),
+	('/admin/edit(\?id=.*)?', EditGamePage),
+	('/admin/?', GameListPage),
+	('/admin/signin/?', SignInRedirect),
 	('/admin/.*', NotFoundPage)
 ])
