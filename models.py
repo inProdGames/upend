@@ -16,6 +16,7 @@ class Game(db.Model):
 	
 	facebook_url = db.StringProperty()
 	gplus_url = db.StringProperty()
+	instagram_url = db.StringProperty()
 	twitter_url = db.StringProperty()
 	
 	visible = db.BooleanProperty()
