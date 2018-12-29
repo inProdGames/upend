@@ -348,14 +348,15 @@ class EditGamePage(webapp2.RequestHandler):
 		# Update the icon if a new one was uploaded.
 		icon = self.request.get('icon')
 		if icon:
-			game.icon = db.Blob(icon.encode('utf-8'))
+			game.icon = db.Blob(icon)
+			
 		
 		thumbnails = self.request.get_all('thumbnail')
 		screenshots = self.request.get_all('screenshot')
 		for i in range(len(thumbnails)):
 			# Skip any where no thumbnail was uploaded.
 			if i < len(thumbnails) and thumbnails[i]:
-				thumbnail_blob = db.Blob(thumbnails[i].encode('utf-8'))
+				thumbnail_blob = db.Blob(thumbnails[i])
 				if i < len(game.thumbnails):
 					game.thumbnails[i] = thumbnail_blob
 				else:
@@ -363,7 +364,7 @@ class EditGamePage(webapp2.RequestHandler):
 			
 			# Skip any where no screenshot was uploaded.
 			if i < len(screenshots) and screenshots[i]:
-				screenshot_blob = db.Blob(screenshots[i].encode('utf-8'))
+				screenshot_blob = db.Blob(screenshots[i])
 				if i < len(game.screenshots):
 					game.screenshots[i] = screenshot_blob
 				else:

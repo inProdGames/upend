@@ -17,6 +17,9 @@ handlers:
 - url: /.*\.(x|ht)ml
   script: redirect.site
 
+- url: /game_assets/?.*
+  script: game_assets.site
+
 - url: /games/?.*
   script: games.site
 

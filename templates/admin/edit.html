@@ -7,7 +7,7 @@
 		padding: 0.5em 0;
 	}
 	td img {
-		max-width: 256px;
+		max-width: 320px;
 		max-height: 256px;
 	}
 	td input[type="text"],
@@ -22,7 +22,7 @@
 	{% endif %}
 </header>
 <div class="main">
-	<form action="" method="POST">
+	<form action="" method="POST" enctype="multipart/form-data">
 		<input type="hidden" name="old-id"{% if game.id %} value="{{ game.id }}"{% endif %} />
 		<table cellspacing="1" cellpadding="0">
 			<tr>
@@ -144,7 +144,7 @@
 				<td colspan="2">
 					<input type="file" name="icon" />
 					<br />
-					<img src="{% if game.id %}/gameassets/icons/{{ game.id }}.png{% endif %}" alt="Icon is {% if game.icon %}set{% else %}not set{% endif %}" />
+					<img src="{% if game.id %}/game_assets/{{ game.id }}/icon.png{% endif %}" alt="Icon is {% if game.icon %}set{% else %}not set{% endif %}" />
 				</td>
 			</tr>
 			<tr>
@@ -152,11 +152,11 @@
 				<td>
 					Thumb: <input type="file" name="thumbnail" />
 					<br />
-					<img src="{% if game.id %}/gameassets/thumbnails/{{ game.id }}0.png{% endif %}" alt="Thumbnail 0 is {% if game.thumbnails[0] %}set{% else %}not set{% endif %}" />
+					<img src="{% if game.id %}/game_assets/{{ game.id }}/thumbnail0.png{% endif %}" alt="Thumbnail 0 is {% if game.thumbnails[0] %}set{% else %}not set{% endif %}" />
 				</td>
 				<td>
 					Full: <input type="file" name="screenshot" />
-					<img src="{% if game.id %}/gameassets/screenshots/{{ game.id }}0.png{% endif %}" alt="Screenshot 0 is {% if game.screenshots[0] %}set{% else %}not set{% endif %}" />
+					<img src="{% if game.id %}/game_assets/{{ game.id }}/screenshot0.png{% endif %}" alt="Screenshot 0 is {% if game.screenshots[0] %}set{% else %}not set{% endif %}" />
 				</td>
 			</tr>
 			<tr>
@@ -164,11 +164,11 @@
 				<td>
 					Thumb: <input type="file" name="thumbnail" />
 					<br />
-					<img src="{% if game.id %}/gameassets/thumbnails/{{ game.id }}1.png{% endif %}" alt="Thumbnail 1 is {% if game.thumbnails[1] %}set{% else %}not set{% endif %}" />
+					<img src="{% if game.id %}/game_assets/{{ game.id }}/thumbnail1.png{% endif %}" alt="Thumbnail 1 is {% if game.thumbnails[1] %}set{% else %}not set{% endif %}" />
 				</td>
 				<td>
 					Full: <input type="file" name="screenshot" />
-					<img src="{% if game.id %}/gameassets/screenshots/{{ game.id }}1.png{% endif %}" alt="Screenshot 1 is {% if game.screenshots[1] %}set{% else %}not set{% endif %}" />
+					<img src="{% if game.id %}/game_assets/{{ game.id }}/screenshot1.png{% endif %}" alt="Screenshot 1 is {% if game.screenshots[1] %}set{% else %}not set{% endif %}" />
 				</td>
 			</tr>
 			<tr>
@@ -176,11 +176,11 @@
 				<td>
 					Thumb: <input type="file" name="thumbnail" />
 					<br />
-					<img src="{% if game.id %}/gameassets/thumbnails/{{ game.id }}2.png{% endif %}" alt="Thumbnail 2 is {% if game.thumbnails[2] %}set{% else %}not set{% endif %}" />
+					<img src="{% if game.id %}/game_assets/{{ game.id }}/thumbnail2.png{% endif %}" alt="Thumbnail 2 is {% if game.thumbnails[2] %}set{% else %}not set{% endif %}" />
 				</td>
 				<td>
 					Full: <input type="file" name="screenshot" />
-					<img src="{% if game.id %}/gameassets/screenshots/{{ game.id }}2.png{% endif %}" alt="Screenshot 2 is {% if game.screenshots[2] %}set{% else %}not set{% endif %}" />
+					<img src="{% if game.id %}/game_assets/{{ game.id }}/screenshot2.png{% endif %}" alt="Screenshot 2 is {% if game.screenshots[2] %}set{% else %}not set{% endif %}" />
 				</td>
 			</tr>
 			<tr>
@@ -188,11 +188,11 @@
 				<td>
 					Thumb: <input type="file" name="thumbnail" />
 					<br />
-					<img src="{% if game.id %}/gameassets/thumbnails/{{ game.id }}3.png{% endif %}" alt="Thumbnail 3 is {% if game.thumbnails[3] %}set{% else %}not set{% endif %}" />
+					<img src="{% if game.id %}/game_assets/{{ game.id }}/thumbnail3.png{% endif %}" alt="Thumbnail 3 is {% if game.thumbnails[3] %}set{% else %}not set{% endif %}" />
 				</td>
 				<td>
 					Full: <input type="file" name="screenshot" />
-					<img src="{% if game.id %}/gameassets/screenshots/{{ game.id }}3.png{% endif %}" alt="Screenshot 3 is {% if game.screenshots[3] %}set{% else %}not set{% endif %}" />
+					<img src="{% if game.id %}/game_assets/{{ game.id }}/screenshot3.png{% endif %}" alt="Screenshot 3 is {% if game.screenshots[3] %}set{% else %}not set{% endif %}" />
 				</td>
 			</tr>
 			<tr>
@@ -200,11 +200,11 @@
 				<td>
 					Thumb: <input type="file" name="thumbnail" />
 					<br />
-					<img src="{% if game.id %}/gameassets/thumbnails/{{ game.id }}4.png{% endif %}" alt="Thumbnail 4 is {% if game.thumbnails[4] %}set{% else %}not set{% endif %}" />
+					<img src="{% if game.id %}/game_assets/{{ game.id }}/thumbnail4.png{% endif %}" alt="Thumbnail 4 is {% if game.thumbnails[4] %}set{% else %}not set{% endif %}" />
 				</td>
 				<td>
 					Full: <input type="file" name="screenshot" />
-					<img src="{% if game.id %}/gameassets/screenshots/{{ game.id }}4.png{% endif %}" alt="Screenshot 4 is {% if game.screenshots[4] %}set{% else %}not set{% endif %}" />
+					<img src="{% if game.id %}/game_assets/{{ game.id }}/screenshot4.png{% endif %}" alt="Screenshot 4 is {% if game.screenshots[4] %}set{% else %}not set{% endif %}" />
 				</td>
 			</tr>
 			<tr>
@@ -212,11 +212,11 @@
 				<td>
 					Thumb: <input type="file" name="thumbnail" />
 					<br />
-					<img src="{% if game.id %}/gameassets/thumbnails/{{ game.id }}5.png{% endif %}" alt="Thumbnail 5 is {% if game.thumbnails[5] %}set{% else %}not set{% endif %}" />
+					<img src="{% if game.id %}/game_assets/{{ game.id }}/thumbnail5.png{% endif %}" alt="Thumbnail 5 is {% if game.thumbnails[5] %}set{% else %}not set{% endif %}" />
 				</td>
 				<td>
 					Full: <input type="file" name="screenshot" />
-					<img src="{% if game.id %}/gameassets/screenshots/{{ game.id }}5.png{% endif %}" alt="Screenshot 5 is {% if game.screenshots[5] %}set{% else %}not set{% endif %}" />
+					<img src="{% if game.id %}/game_assets/{{ game.id }}/screenshot5.png{% endif %}" alt="Screenshot 5 is {% if game.screenshots[5] %}set{% else %}not set{% endif %}" />
 				</td>
 			</tr>
 			<tr>
