@@ -17,6 +17,11 @@ class GamePage(webapp2.RequestHandler):
 		if id[-11:] == '/index.html':
 			id = id[:-11]
 		
+		if id != id.lower():
+			# If the ID has caps in it, convert it to lowercase.
+			self.redirect('/games/' + id.lower())
+			return
+		
 		game = Game.query(Game.id == id).get()
 		
 		if not game:
