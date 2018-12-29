@@ -5,10 +5,45 @@
 	<p>
 		{{ game.description|safe }}
 	</p>
-	<section class="game-embed">
-		<img src="/static/images/games/thumbs/{{ game.id }}.png" style="display:none;" alt="{{ title }}" />
-		{{ game.embed_code|safe }}
-	</section>
+	<div class="game-main-content">
+		<section class="game-embed">
+			<img src="/static/images/games/thumbs/{{ game.id }}.png" style="display:none;" alt="{{ title }}" />
+			{{ game.embed_code|safe }}
+		</section>
+		{% if game.facebook_url or game.gplus_url or game.instagram_url or game.twitter_url %}
+			<section class="game-feed-links">
+				<div class="game-feed-follow-message">Follow <i>{{ game.short_title or game.abbr_title or game.title }}</i>:</div>
+				{% if game.facebook_url %}
+					<a href="{{ game.facebook_url }}" target="_blank">
+						<svg role="img">
+							<use xlink:href="/static/images/icons/fb.svg#icon"></use>
+						</svg>
+					</a>
+				{% endif %}
+				{% if game.gplus_url %}
+					<a href="{{ game.gplus_url }}" rel="publisher" target="_blank">
+						<svg role="img">
+							<use xlink:href="/static/images/icons/gplus.svg#icon"></use>
+						</svg>
+					</a>
+				{% endif %}
+				{% if game.instagram_url %}
+					<a href="{{ game.instagram_url }}" rel="publisher" target="_blank">
+						<svg role="img">
+							<use xlink:href="/static/images/icons/instagram.svg#icon"></use>
+						</svg>
+					</a>
+				{% endif %}
+				{% if game.twitter_url %}
+					<a href="{{ game.twitter_url }}" target="_blank">
+						<svg role="img">
+							<use xlink:href="/static/images/icons/twitter.svg#icon"></use>
+						</svg>
+					</a>
+				{% endif %}
+			</section>
+		{% endif %}
+	</div>
 	<section class="game-share" cellpadding="8">
 		<div>
 			<!-- +1 -->
@@ -42,39 +77,6 @@
 			{{ game.credits|safe }}
 		{% endif %}
 	</section>
-	{% if game.facebook_url or game.gplus_url or game.instagram_url or game.twitter_url %}
-		<section class="feed-links">
-			Follow <i>{{ game.title }}</i>:
-			{% if game.facebook_url %}
-				<a href="{{ game.facebook_url }}" target="_blank">
-					<svg role="img">
-						<use xlink:href="/static/images/icons/fb.svg#icon"></use>
-					</svg>
-				</a>
-			{% endif %}
-			{% if game.gplus_url %}
-				<a href="{{ game.gplus_url }}" rel="publisher" target="_blank">
-					<svg role="img">
-						<use xlink:href="/static/images/icons/gplus.svg#icon"></use>
-					</svg>
-				</a>
-			{% endif %}
-			{% if game.instagram_url %}
-				<a href="{{ game.instagram_url }}" rel="publisher" target="_blank">
-					<svg role="img">
-						<use xlink:href="/static/images/icons/instagram.svg#icon"></use>
-					</svg>
-				</a>
-			{% endif %}
-			{% if game.twitter_url %}
-				<a href="{{ game.twitter_url }}" target="_blank">
-					<svg role="img">
-						<use xlink:href="/static/images/icons/twitter.svg#icon"></use>
-					</svg>
-				</a>
-			{% endif %}
-		</section>
-	{% endif %}
 	{% if game.changelog %}
 	<!-- Updates:
 		{{ game.changelog }}

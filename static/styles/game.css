@@ -2,6 +2,30 @@
 .game-details {
 	text-align: center;
 }
+
+.game-main-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.game-feed-links {
+	margin: 1em;
+	text-align: center;
+	
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+	.game-feed-links svg {
+		vertical-align: middle;
+		width: 24px;
+		height: 24px;
+		padding: 12px;
+		transform: scale(1.5);
+	}
+
 .game-share {
 	display: flex;
 	margin: 0 auto;
@@ -12,10 +36,18 @@
 		margin: 1em;
 	}
 
-.feed-links {
-	text-align: center;
-	margin: 1em;
-}
-	.feed-links svg {
-		vertical-align: middle;
+@media (min-width: 760px) {
+	.game-main-content {
+		flex-direction: row;
+		align-items: flex-start;
+		justify-content: center;
 	}
+	.game-feed-links {
+		flex-direction: column;
+		justify-content: flex-start;
+	}
+		.game-feed-links > .game-feed-follow-message {
+			padding-top: 16px;
+			max-width: 80px;
+		}
+}
