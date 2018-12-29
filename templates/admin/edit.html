@@ -32,6 +32,12 @@
 				</td>
 			</tr>
 			<tr>
+				<td>Alt IDs</td>
+				<td colspan="2">
+					<input type="text" name="alt-ids"{% if game.alt_ids %} value="{{ ','.join(game.alt_ids) }}"{% endif %} />
+				</td>
+			</tr>
+			<tr>
 				<td>Platforms</td>
 				<td colspan="2">
 					<select name="platforms" size="3" multiple="multiple">
@@ -76,7 +82,13 @@
 				</td>
 			</tr>
 			<tr>
-				<td>Abbreviated Title</td>
+				<td>Short Title</td>
+				<td colspan="2">
+					<input type="text" name="short-title"{% if game.short_title %} value="{{ game.short_title }}"{% endif %} />
+				</td>
+			</tr>
+			<tr>
+				<td>Abbreviation</td>
 				<td colspan="2">
 					<input type="text" name="abbr-title"{% if game.abbr_title %} value="{{ game.abbr_title }}"{% endif %} />
 				</td>
@@ -86,6 +98,15 @@
 				<td colspan="2">
 					<textarea type="text" name="description">{% if game.description %}{{ game.description }}{% endif %}</textarea>
 				</td>
+			</tr>
+			<tr>
+				<td>Short Description</td>
+				<td colspan="2">
+					<textarea type="text" name="short-description">{% if game.short_description %}{{ game.short_description }}{% endif %}</textarea>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3"><hr /></td>
 			</tr>
 			<tr>
 				<td>Embed code</td>

@@ -322,11 +322,20 @@ class EditGamePage(webapp2.RequestHandler):
 		
 		# Set all the basic properties.
 		game.id = self.request.get('id')
+		alt_ids = self.request.get('alt-ids')
+		if alt_ids:
+			game.alt_ids = alt_ids.split(',')
+		
 		game.platforms = self.request.get_all('platforms')
 		game.tech = self.request.get_all('tech')
+		
 		game.title = self.request.get('title')
+		game.short_title = self.request.get('short-title')
 		game.abbr_title = self.request.get('abbr-title')
+		
 		game.description = self.request.get('description')
+		game.short_description = self.request.get('short-description')
+		
 		game.embed_code = self.request.get('embed-code')
 		game.release_date = self.request.get('release-date')
 		game.version = self.request.get('version')
