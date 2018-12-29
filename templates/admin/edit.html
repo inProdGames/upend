@@ -241,6 +241,14 @@
 				</td>
 			</tr>
 			<tr>
+				<td>Thumbnail strip</td>
+				<td colspan="2">
+					<input type="file" name="thumbstrip" />
+					<br />
+					<img src="{% if game.id %}/game_assets/{{ game.id }}/thumbstrip.png{% endif %}" alt="Thumbnail strip is {% if game.thumbstrip %}set{% else %}not set{% endif %}" />
+				</td>
+			</tr>
+			<tr>
 				<td colspan="3"><hr /></td>
 			</tr>
 			<tr>

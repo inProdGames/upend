@@ -26,6 +26,7 @@ class Game(ndb.Model):
 	icon = ndb.BlobProperty()
 	thumbnails = ndb.BlobProperty(repeated=True)
 	screenshots = ndb.BlobProperty(repeated=True)
+	thumbstrip = ndb.BlobProperty()
 	
 	facebook_url = ndb.StringProperty()
 	gplus_url = ndb.StringProperty()

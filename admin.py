@@ -354,11 +354,14 @@ class EditGamePage(webapp2.RequestHandler):
 		except:
 			print 'Submitted feature rank was not an integer.'
 		
-		# Update the icon if a new one was uploaded.
+		# Update the icon or thumbnail strip if a new one was uploaded.
 		icon = self.request.get('icon')
 		if icon:
 			game.icon = db.Blob(icon)
-			
+		
+		thumbstrip = self.request.get('thumbstrip')
+		if thumbstrip:
+			game.thumbstrip = db.Blob(thumbstrip)
 		
 		thumbnails = self.request.get_all('thumbnail')
 		screenshots = self.request.get_all('screenshot')

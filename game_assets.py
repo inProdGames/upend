@@ -22,20 +22,36 @@ def get_content_type(image_data, ext):
 	return ''
 
 
-class IconHandler(webapp2.RequestHandler):
-	def get(self, game_id, ext):
+class SingleImageHandler(webapp2.RequestHandler):
+	def get(self, game_id, type, ext):
 		game = Game.query(Game.id == game_id).get()
 		
-		# Check that the requested image exists for the game.
-		if not game.icon:
-			self.response.write('Icon not found for game ' + game_id + '.')
+		if type == 'icon':
+			# Check that the requested image exists for the game.
+			if not game.icon:
+				self.response.write('Icon not found for game ' + game_id + '.')
+				self.error(404)
+				return
+			
+			# Output the icon.
+			self.response.headers['Content-Type'] = get_content_type(game.icon, ext)
+			self.response.write(game.icon)
+			
+		elif type == 'thumbstrip':
+			# Check that the requested image exists for the game.
+			if not game.thumbstrip:
+				self.response.write('Thumbnail strip not found for game ' + game_id + '.')
+				self.error(404)
+				return
+			
+			# Output the thumbnail strip.
+			self.response.headers['Content-Type'] = get_content_type(game.thumbstrip, ext)
+			self.response.write(game.thumbstrip)
+			
+		else:
 			self.error(404)
-			return
-		# Output the icon.
-		self.response.headers['Content-Type'] = get_content_type(game.icon, ext)
-		self.response.write(game.icon)
 
-class ImageHandler(webapp2.RequestHandler):
+class ListImageHandler(webapp2.RequestHandler):
 	def get(self, game_id, type, num, ext):
 		game = Game.query(Game.id == game_id).get()
 		
@@ -72,6 +88,6 @@ class ImageHandler(webapp2.RequestHandler):
 			self.error(404)
 
 site = webapp2.WSGIApplication([
-	('/game_assets/([a-z0-9]+)/icon\.(gif|jpg|png)', IconHandler),
-	('/game_assets/([a-z0-9]+)/(screenshot|thumbnail)([0-9]+)\.(gif|jpg|png)', ImageHandler)
+	('/game_assets/([a-z0-9]+)/(icon|thumbstrip)\.(gif|jpg|png)', SingleImageHandler),
+	('/game_assets/([a-z0-9]+)/(screenshot|thumbnail)([0-9]+)\.(gif|jpg|png)', ListImageHandler)
 ])
