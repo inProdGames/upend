@@ -2,8 +2,9 @@
 			var productionsList,
 				topRow,
 				nameHead,
-				typeHead,
+				platformHead,
 				statusHead,
+				techHead,
 				rows = [];
 			
 			function init() {
@@ -13,49 +14,75 @@
 				rows = Array.prototype.slice.call(productionsList.querySelectorAll('tr'), 1);
 				
 				nameHead = document.getElementById('header-name');
-				typeHead = document.getElementById('header-type');
+				platformHead = document.getElementById('header-platform');
 				statusHead = document.getElementById('header-status');
-				
-				sortByTitle();
+				techHead = document.getElementById('header-tech');
+			}
+			function compareValue(a, b) {
+				if (a < b) {
+					return -1;
+				} else if (a > b) {
+					return 1;
+				}
+				return 0;
 			}
 			function sortByTitle() {
-				nameHead.classList.add('active');
-				typeHead.classList.remove('active');
-				statusHead.classList.remove('active');
-				
 				rows.sort(function (a, b) {
 					var aTitle = a.querySelector('.column-title h2').textContent,
 						bTitle = b.querySelector('.column-title h2').textContent;
-					return aTitle > bTitle;
+					return compareValue(aTitle, bTitle);
 				});
 				
 				repopulateList();
-			}
-			function sortByType() {
-				nameHead.classList.remove('active');
-				typeHead.classList.add('active');
+				
+				nameHead.classList.add('active');
+				platformHead.classList.remove('active');
 				statusHead.classList.remove('active');
-				
+				techHead.classList.remove('active');
+			}
+			function sortByPlatform() {
 				rows.sort(function (a, b) {
-					var aType = a.querySelector('.column-type title').textContent,
-						bType = b.querySelector('.column-type title').textContent;
-					return aType > bType;
+					var aPlatform = a.querySelector('.column-platform title').textContent,
+						bPlatform = b.querySelector('.column-platform title').textContent;
+					return compareValue(aPlatform, bPlatform);
 				});
 				
 				repopulateList();
+				
+				nameHead.classList.remove('active');
+				platformHead.classList.add('active');
+				statusHead.classList.remove('active');
+				techHead.classList.remove('active');
 			}
 			function sortByStatus() {
-				nameHead.classList.remove('active');
-				typeHead.classList.remove('active');
-				statusHead.classList.add('active');
-				
 				rows.sort(function (a, b) {
 					var aStatus = a.querySelector('.column-status').dataset.sortValue,
 						bStatus = b.querySelector('.column-status').dataset.sortValue;
-					return aStatus > bStatus;
+					return compareValue(aStatus, bStatus);
 				});
 				
 				repopulateList();
+				
+				nameHead.classList.remove('active');
+				platformHead.classList.remove('active');
+				statusHead.classList.add('active');
+				techHead.classList.remove('active');
+			}
+			function sortByTech() {
+				console.log(rows.map((row) => row.querySelector('.column-tech title').textContent));
+				rows.sort(function (a, b) {
+					var aTech = a.querySelector('.column-tech title').textContent,
+						bTech = b.querySelector('.column-tech title').textContent;
+					return compareValue(aTech, bTech);
+				});
+				console.log(rows.map((row) => row.querySelector('.column-tech title').textContent));
+				
+				repopulateList();
+				
+				nameHead.classList.remove('active');
+				platformHead.classList.remove('active');
+				statusHead.classList.remove('active');
+				techHead.classList.add('active');
 			}
 			function repopulateList() {
 				productionsList.innerHTML = '';
@@ -76,17 +103,52 @@
 					<th id="header-name" class="column-head" onclick="sortByTitle();">
 						Title
 					</th>
-					<th id="header-type" class="column-head" onclick="sortByType();">
-						Type
+					<th id="header-platform" class="column-head" onclick="sortByPlatform();">
+						Platform
 					</th>
 					<th id="header-status" class="column-head" onclick="sortByStatus();">
 						Status
 					</th>
+					<th id="header-tech" class="column-head" onclick="sortByTech();">
+						Tech.
+					</th>
+				</tr>
+				<tr>
+					<td class="column-thumb">
+						<a href="/games/workshopscramble">
+							<img src="/game_assets/workshopscramble/icon.png" alt="Workshop Scramble icon" />
+						</a>
+					</td>
+					<td class="column-title">
+						<a href="/games/workshopscramble">
+							<h2>Workshop Scramble</h2>
+							Make toys for kids in a challenging holiday-themed mobile game
+						</a>
+					</td>
+					<td class="column-platform">
+						<svg role="img">
+							<title>Android</title>
+							<use xlink:href="/static/images/icons/android.svg#icon"></use>
+						</svg>
+						<svg role="img">
+							<title>Windows</title>
+							<use xlink:href="/static/images/icons/windows.svg#icon"></use>
+						</svg>
+					</td>
+					<td class="column-status" style="color: green;" data-sort-value="2018-12">
+						Released December&nbsp;2018
+					</td>
+					<td class="column-tech">
+						<svg role="img">
+							<title>Unity</title>
+							<use xlink:href="/static/images/icons/unity.svg#icon"></use>
+						</svg>
+					</td>
 				</tr>
 				<tr>
 					<td class="column-thumb">
 						<a href="/games/bananasplit">
-							<img src="/static/images/games/thumbs/bananasplit_small.png"/>
+							<img src="/game_assets/bananasplit/icon.png" alt="Banana Split icon" />
 						</a>
 					</td>
 					<td class="column-title">
@@ -95,36 +157,48 @@
 							A sweet twist of third-person shooter and real-time strategy action
 						</a>
 					</td>
-					<td class="column-type">
+					<td class="column-platform">
+						<svg role="img">
+							<title>Web</title>
+							<use xlink:href="/static/images/icons/web.svg#icon"></use>
+						</svg>
+					</td>
+					<td class="column-status" style="color: #404040;" data-sort-value="dev">
+						Work-in-progress
+					</td>
+					<td class="column-tech">
 						<svg role="img">
 							<title>HTML5</title>
 							<use xlink:href="/static/images/icons/html5.svg#icon"></use>
 						</svg>
 					</td>
-					<td class="column-status" style="color: #404040;" data-sort-value="dev">
-						In development
-					</td>
 				</tr>
 				<tr>
 					<td class="column-thumb">
-						<a href="/games/icr">
-							<img src="/static/images/games/thumbs/icr_small.png"/>
+						<a href="/games/ltd">
+							<img src="/game_assets/legittd/icon.png" alt="Legitimate Tower Defense icon" />
 						</a>
-					</td>
 					<td class="column-title">
-						<a href="/games/icr">
-							<h2>Inverse Cube Runner</h2>
-							<i>Cube Runner</i> from the other perspective
+						<a href="/games/ltd">
+							<h2>Legitimate Tower Defense</h2>
+							Defend your city's towers.  Legitimately.
+							<br />
 						</a>
 					</td>
-					<td class="column-type">
+					<td class="column-platform">
 						<svg role="img">
-							<title>Java</title>
-							<use xlink:href="/static/images/icons/java.svg#icon"></use>
+							<title>Web</title>
+							<use xlink:href="/static/images/icons/web.svg#icon"></use>
 						</svg>
 					</td>
-					<td class="column-status" style="color: green;" data-sort-value="2010-02">
-						Released February&nbsp;2010
+					<td class="column-status" style="color: green;" data-sort-value="2009-04">
+						Released April&nbsp;2009
+					</td>
+					<td class="column-tech">
+						<svg role="img">
+							<title>Flash</title>
+							<use xlink:href="/static/images/icons/flash.svg#icon"></use>
+						</svg>
 					</td>
 				</tr>
 				<tr>
@@ -140,14 +214,48 @@
 							<i>Cube Runner</i> from the other perspective - with new graphics and better browser support
 						</a>
 					</td>
-					<td class="column-type">
+					<td class="column-platform">
+						<svg role="img">
+							<title>Web</title>
+							<use xlink:href="/static/images/icons/web.svg#icon"></use>
+						</svg>
+					</td>
+					<td class="column-status" style="color: blue;" data-sort-value="beta">
+						Beta
+					</td>
+					<td class="column-tech">
 						<svg role="img">
 							<title>HTML5</title>
 							<use xlink:href="/static/images/icons/html5.svg#icon"></use>
 						</svg>
 					</td>
-					<td class="column-status" style="color: blue;" data-sort-value="beta">
-						Beta
+				</tr>
+				<tr>
+					<td class="column-thumb">
+						<a href="/games/icr">
+							<img src="/static/images/games/thumbs/icr_small.png"/>
+						</a>
+					</td>
+					<td class="column-title">
+						<a href="/games/icr">
+							<h2>Inverse Cube Runner</h2>
+							<i>Cube Runner</i> from the other perspective
+						</a>
+					</td>
+					<td class="column-platform">
+						<svg role="img">
+							<title>Web</title>
+							<use xlink:href="/static/images/icons/web.svg#icon"></use>
+						</svg>
+					</td>
+					<td class="column-status" style="color: green;" data-sort-value="2010-02">
+						Released February&nbsp;2010
+					</td>
+					<td class="column-tech">
+						<svg role="img">
+							<title>Java</title>
+							<use xlink:href="/static/images/icons/java.svg#icon"></use>
+						</svg>
 					</td>
 				</tr>
 				<tr>
@@ -163,36 +271,20 @@
 							<i>Missile Command</i> from the other perspective
 						</a>
 					</td>
-					<td class="column-type">
+					<td class="column-platform">
 						<svg role="img">
-							<title>Flash</title>
-							<use xlink:href="/static/images/icons/flash.svg#icon"></use>
+							<title>Web</title>
+							<use xlink:href="/static/images/icons/web.svg#icon"></use>
 						</svg>
 					</td>
 					<td class="column-status" style="color: blue;" data-sort-value="beta">
 						Beta
 					</td>
-				</tr>
-				<tr>
-					<td class="column-thumb">
-						<a href="/games/ltd">
-							<img src="/static/images/games/thumbs/ltd_small.png"/>
-						</a>
-					<td class="column-title">
-						<a href="/games/ltd">
-							<h2>Legitimate Tower Defense</h2>
-							Defend your city's towers.  Legitimately.
-							<br />
-						</a>
-					</td>
-					<td class="column-type">
+					<td class="column-tech">
 						<svg role="img">
 							<title>Flash</title>
 							<use xlink:href="/static/images/icons/flash.svg#icon"></use>
 						</svg>
-					</td>
-					<td class="column-status" style="color: green;" data-sort-value="2009-04">
-						Released April&nbsp;2009
 					</td>
 				</tr>
 			</table>

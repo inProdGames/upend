@@ -33,10 +33,10 @@
 	.column-title h2 {
 		margin-top: 0;
 	}
-.column-type svg {
+.column-platform svg,
+.column-tech svg {
 	width: 24px;
 	height: 24px;
-	transform: scale(1.25);
 }
 .column-status {
 	font-size: 80%;
@@ -54,12 +54,30 @@
 		background-color: #efefef;
 	}
 
+#header-status,
+#header-tech,
+.column-status,
+.column-tech {
+	display: none;
+}
+
+@media (min-width: 760px) {
+	#header-status,
+	#header-tech,
+	.column-status,
+	.column-tech {
+		display: block;
+		display: table-cell;
+	}
+}
 @media (min-width: 560px) {
 	.column-thumb img {
 		width: 128px;
 	}
-	.column-type svg {
-		transform: scale(1.5);
+	.column-platform svg,
+	.column-tech svg {
+		transform: scale(1.25);
+		padding: 4px;
 	}
 	.column-status {
 		font-size: 100%;
