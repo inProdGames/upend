@@ -17,7 +17,13 @@ class GamePage(webapp2.RequestHandler):
 		if id[-11:] == '/index.html':
 			id = id[:-11]
 		
-		game = Game.gql('WHERE id = :1', id).get()
+		game = Game.query(Game.id == id).get()
+		
+		if not game:
+			# If an alternate ID was used, redirect to that page.
+			game = Game.query(Game.alt_ids == id).get()
+			self.redirect('/games/' + game.id)
+			return
 		
 		template = JINJA_ENVIRONMENT.get_template('head.html')
 		self.response.write(template.render({
