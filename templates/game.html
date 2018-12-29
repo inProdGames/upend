@@ -42,7 +42,7 @@
 			{{ game.credits|safe }}
 		{% endif %}
 	</section>
-	{% if game.facebook_url or game.gplus_url or game.twitter_url %}
+	{% if game.facebook_url or game.gplus_url or game.instagram_url or game.twitter_url %}
 		<section class="feed-links">
 			Follow <i>{{ game.title }}</i>:
 			{% if game.facebook_url %}
@@ -56,6 +56,13 @@
 				<a href="{{ game.gplus_url }}" rel="publisher" target="_blank">
 					<svg role="img">
 						<use xlink:href="/static/images/icons/gplus.svg#icon"></use>
+					</svg>
+				</a>
+			{% endif %}
+			{% if game.instagram_url %}
+				<a href="{{ game.instagram_url }}" rel="publisher" target="_blank">
+					<svg role="img">
+						<use xlink:href="/static/images/icons/instagram.svg#icon"></use>
 					</svg>
 				</a>
 			{% endif %}
