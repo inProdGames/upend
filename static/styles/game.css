@@ -3,6 +3,16 @@
 	text-align: center;
 }
 
+.game-screenshots {
+	white-space: nowrap;
+	overflow: auto;
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+	.game-screenshots img {
+		height: 250px;
+	}
+
 .game-main-content {
 	display: flex;
 	flex-direction: column;

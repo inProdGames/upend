@@ -5,6 +5,13 @@
 	<p>
 		{{ game.description|safe }}
 	</p>
+	{% if game.thumbnails %}
+		<div class="game-screenshots">
+			{% for thumbnail in game.thumbnails %}
+				<img src="/game_assets/{{ game.id }}/thumbnail{{ loop.index - 1 }}.png" alt="Screenshot" />
+			{% endfor %}
+		</div>
+	{% endif %}
 	<div class="game-main-content">
 		<section class="game-embed">
 			<img src="/static/images/games/thumbs/{{ game.id }}.png" style="display:none;" alt="{{ title }}" />
