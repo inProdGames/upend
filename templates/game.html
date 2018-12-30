@@ -68,22 +68,17 @@
 	</section>
 	<section class="game-details">
 		{% if game.release_date %}
-			<br />
-			Release date: {{ game.release_date|safe }}
+			<span>Release date: {{ game.release_date|safe }}</span>
+		{% elif game.status %}
+			<span>Status: {{ game.status }}</span>
 		{% endif %}
 		{% if game.version %}
-			<br />
-			Current version: {{ game.version }}
-		{% endif %}
-		{% if game.status %}
-			<br />
-			Status: {{ game.status }}
-		{% endif %}
-		{% if game.credits %}
-			<br />
-			{{ game.credits|safe }}
+			<span>Current version: {{ game.version }}</span>
 		{% endif %}
 	</section>
+	{% if game.credits %}
+		<section class="game-credits">{{ game.credits|safe }}</section>
+	{% endif %}
 	{% if game.changelog %}
 	<!-- Updates:
 		{{ game.changelog }}

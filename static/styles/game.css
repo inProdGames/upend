@@ -46,6 +46,22 @@
 		margin: 1em;
 	}
 
+.game-details,
+.game-credits {
+	font-size: 75%;
+	text-align: center;
+}
+	.game-details {
+		display: flex;
+		justify-content: space-evenly;
+	}
+	.game-credits {
+		margin: 1em 0;
+	}
+		.game-credits p {
+			margin: 0.5em;
+		}
+
 @media (min-width: 760px) {
 	.game-main-content {
 		flex-direction: row;
