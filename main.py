@@ -58,6 +58,15 @@ class ProductionsRedirect(webapp2.RequestHandler):
 	def get(self, path):
 		self.redirect('/games' + path);
 
+class PrivacyPolicyPage(webapp2.RequestHandler):
+	def get(self):
+		self.response.headers['Content-Type'] = 'text/plain'
+		self.response.write(
+			'Privacy Policy\n\n' +
+			'The Inverted Productions website and games do not collect or store any personal information until stated otherwise.\n\n' +
+			'The Flash version of Legitimate Tower Defense includes ads from The Game Center (see www.thegamescenter.com to inquire about their policies).\n\n' +
+			'The Android version of Workshop Scramble will access your profile and device identifier if you enable achievements and leaderboards, however Inverted Productions does not store or otherwise use that information.')
+
 class NotFoundPage(webapp2.RequestHandler):
 	def get(self):
 		templateVars = {'title':'Error 404'}
@@ -79,5 +88,6 @@ site = webapp2.WSGIApplication([
 	('/news', NewsPage),
 	('/people', PeoplePage),
 	('/productions(/.*)?', ProductionsRedirect),
+	('/privacy', PrivacyPolicyPage),
 	('/.*', NotFoundPage)
 ])
