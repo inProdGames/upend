@@ -1,5 +1,5 @@
-application: inprodsite
-version: upend
+#application: inprodsite # Use `--project=inprodsite` when you `gcloud app deploy`.
+#version: upend # Use `--version=upend` when you `gcloud app deploy`.
 runtime: python27
 api_version: 1
 threadsafe: true
