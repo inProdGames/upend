@@ -180,6 +180,7 @@ header {
 		bottom: 0;
 		width: 96px;
 		max-width: calc(100vw - 768px - 112px); /* I am honestly not sure why 112 seems to be the magic number. */
+		z-index: -1;
 	}
 	.main::before {
 		right: 100%;
