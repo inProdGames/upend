@@ -68,6 +68,16 @@ class PrivacyPolicyPage(webapp2.RequestHandler):
 			'The Android version of Workshop Scramble will access your profile and device identifier if you enable achievements and leaderboards, however Inverted Productions does not store or otherwise use that information.\n\n' +
 			'TetrEscape includes ads from Google AdSense (see policies.google.com/privacy to inquire about their policies).')
 
+class RobotsTxtPage(webapp2.RequestHandler):
+	def get(self):
+		self.response.headers['Content-Type'] = 'text/plain'
+		self.response.write('User-agent: *\nDisallow:')
+
+class AdsTxtPage(webapp2.RequestHandler):
+	def get(self):
+		self.response.headers['Content-Type'] = 'text/plain'
+		self.response.write('google.com, pub-9563245442880944, DIRECT, f08c47fec0942fa0')
+
 class NotFoundPage(webapp2.RequestHandler):
 	def get(self):
 		templateVars = {'title':'Error 404'}
@@ -90,5 +100,7 @@ site = webapp2.WSGIApplication([
 	('/people', PeoplePage),
 	('/productions(/.*)?', ProductionsRedirect),
 	('/privacy', PrivacyPolicyPage),
+	('/robots\.txt', RobotsTxtPage),
+	('/ads\.txt', AdsTxtPage),
 	('/.*', NotFoundPage)
 ])
