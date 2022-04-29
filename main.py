@@ -17,7 +17,7 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 class HomePage(webapp2.RequestHandler):
 	def get(self):
 		templateVars = {
-			'description':'The homepage of Inverted Productions, featuring video games that offer a completely new gaming experiences or new perspectives on familiar games.',
+			'description':'We make video games that offer a completely new experiences or new perspectives on familiar ones, including TetrEscape, Workshop Scramble, and Legitimate Tower Defense.',
 			'styles': 'home'
 		}
 		
