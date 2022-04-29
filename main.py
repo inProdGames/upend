@@ -65,7 +65,8 @@ class PrivacyPolicyPage(webapp2.RequestHandler):
 			'Privacy Policy\n\n' +
 			'The Inverted Productions website and games do not collect or store any personal information until stated otherwise.\n\n' +
 			'The Flash version of Legitimate Tower Defense includes ads from The Game Center (see www.thegamescenter.com to inquire about their policies).\n\n' +
-			'The Android version of Workshop Scramble will access your profile and device identifier if you enable achievements and leaderboards, however Inverted Productions does not store or otherwise use that information.')
+			'The Android version of Workshop Scramble will access your profile and device identifier if you enable achievements and leaderboards, however Inverted Productions does not store or otherwise use that information.\n\n' +
+			'TetrEscape includes ads from Google AdSense (see policies.google.com/privacy to inquire about their policies).')
 
 class NotFoundPage(webapp2.RequestHandler):
 	def get(self):
