@@ -50,7 +50,7 @@ class GamePage(webapp2.RequestHandler):
 class GamesList(webapp2.RequestHandler):
 	def get(self):
 		templateVars = {
-			'title':'Games',
+			'title':'Productions',
 			'description':'Games and other productions by Inverted Productions',
 			'styles': 'productions'
 		}
