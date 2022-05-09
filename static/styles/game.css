@@ -36,16 +36,6 @@
 		transform: scale(1.5);
 	}
 
-.game-share {
-	display: flex;
-	margin: 0 auto;
-	align-items: center;
-	justify-content: center;
-}
-	.game-share > div {
-		margin: 1em;
-	}
-
 .game-details,
 .game-credits {
 	font-size: 75%;
