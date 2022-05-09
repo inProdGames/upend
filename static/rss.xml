@@ -5,23 +5,42 @@
 		<link>http://inprod.co/news</link>
 		<description>The latest news from Inverted Productions</description>
 		<language>en-us</language>
-		<pubDate>Mon, 14 Feb 2022 02:09:00 EST</pubDate>
+		<pubDate>Mon, 09 May 2022 19:30:00 EST</pubDate>
 		<copyright>Inverted Productions</copyright>
+		<item>
+			<link>http://inprod.co/news#post32</link>
+			<title>TetrEscape Releases This Week</title>
+			<pubDate>Mon, 09 May 2022 09:30:00 EST</pubDate>
+			<description>
+				<![CDATA[
+					<p>
+						We're in the final countdown to <a href="https://inprod.co/games/tetrescape" style="font-size: italic;">TetrEscape</a>!  Thanks to everyone who's supported us along the way, and we hope you're looking forward to escaping some rooms this Friday the 13<sup>th</sup>!
+					</p>
+					<figure>
+						<img src="https://inprod.co/static/images/news/2022/te_release_date.gif" alt="TetrEscape.  Escaping Friday, May thirteenth." style="max-width: 100%; max-height: 480px;" />
+					</figure>
+				]]>
+			</description>
+		</item>
 		<item>
 			<link>http://inprod.co/news#post31</link>
 			<title>Introducing The InProd Discord</title>
+			<pubDate>Fri, 11 Feb 2022 12:00:00 EST</pubDate>
 			<description>
 				<![CDATA[
 					<p>
 						Times are still tough and isolating right now, but we're adding another way to stay connected.  If you want to chat with other designers, developers, or players&mdash;about our productions, or about whatever you've been up to so far this year&mdash;<a href="http://discord.inprod.co">hop into our new Discord server</a> and hang out!
 					</p>
+					<figure>
+						<img src="https://inprod.co/static/images/news/2022/discord_server_list.png" alt="The Inverted Productions Discord in the Discord sidebar." style="max-width: 100%; max-height: 480px;" />
+					</figure>
 				]]>
 			</description>
-			<pubDate>Friday, 11 Feb 2022 12:00:00 EST</pubDate>
 		</item>
 		<item>
 			<title>ROC Game Fest Returns!</title>
 			<link>http://inprod.co/news#post30</link>
+			<pubDate>Mon, 07 Feb 2022 16:46:00 EST</pubDate>
 			<description>
 				<![CDATA[
 					<p>
@@ -30,10 +49,11 @@
 					<p>
 						Join us Saturday, February 19<sup>th</sup> from 12-5 P.M. in the RIT MAGIC building.  It's completely free to attend, however you will need to show proof of vaccination and wear a mask at all times.
 					</p>
+					<figure>
+						<img src="/static/images/news/2022/rgf_spring.png" alt="The TetrEscape logo with a robot.  The ROC Game Fest logo is hidden by a mask.  The Workshop Scramble logo with a present box with supplies to stay safe from COVID-19." style="max-width: 100%; max-height: 480px;" />
+					</figure>
 				]]>
 			</description>
-			<aside>Posted 2022-02-07</aside>
-			<pubDate>Monday, 7 Feb 2022 16:46:00 EST</pubDate>
 		</item>
 		<item>
 			<title>Happy New Year!</title>
