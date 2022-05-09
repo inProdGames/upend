@@ -235,6 +235,10 @@ class ReloadGameData(webapp2.RequestHandler):
 						'facebook_url':'https://www.facebook.com/Workshop-Scramble-308846489966788',
 						'instagram_url':'https://www.instagram.com/WorkshopScramble',
 						'twitter_url':'https://twitter.com/WorkshopScrambl',
+						'cws_url':'https://chrome.google.com/webstore/detail/workshop-scramble/cmmffbocohfngbcphjfblefehejhpjdd',
+						'gplay_url':'https://play.google.com/store/apps/details?id=co.inprod.WorkshopScramble',
+						'itch_url':'http://localhost:8080/games/game.itch_url',
+						'ms_url':'https://www.microsoft.com/en-us/p/workshop-scramble/9pp0953tfssm',
 						'visible':True,
 						'feature_rank':1
 					},
@@ -348,6 +352,11 @@ class EditGamePage(webapp2.RequestHandler):
 		game.gplus_url = self.request.get('gplus-url')
 		game.instagram_url = self.request.get('instagram-url')
 		game.twitter_url = self.request.get('twitter-url')
+		
+		game.cws_url = self.request.get('cws-url')
+		game.gplay_url = self.request.get('gplay-url')
+		game.itch_url = self.request.get('itch-url')
+		game.ms_url = self.request.get('ms-url')
 		
 		game.visible = (self.request.get('visible') == 'on')
 		try:

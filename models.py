@@ -33,5 +33,10 @@ class Game(ndb.Model):
 	instagram_url = ndb.StringProperty()
 	twitter_url = ndb.StringProperty()
 	
+	cws_url = ndb.StringProperty()
+	gplay_url = ndb.StringProperty()
+	itch_url = ndb.StringProperty()
+	ms_url = ndb.StringProperty()
+	
 	visible = ndb.BooleanProperty()
 	feature_rank = ndb.IntegerProperty()

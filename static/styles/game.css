@@ -13,6 +13,19 @@
 		height: 250px;
 	}
 
+.game-store-links {
+	display: flex;
+	margin: 0 auto;
+	align-items: center;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+}
+	.game-store-links img {
+		height: 64px;
+		border-radius: 8px;
+		margin: 0 4px;
+	}
+
 .game-main-content {
 	display: flex;
 	flex-direction: column;
