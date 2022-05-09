@@ -5,12 +5,12 @@
 		<link>http://inprod.co/news</link>
 		<description>The latest news from Inverted Productions</description>
 		<language>en-us</language>
-		<pubDate>Mon, 09 May 2022 19:30:00 EST</pubDate>
+		<pubDate>Mon, 09 May 2022 19:30:00 EDT</pubDate>
 		<copyright>Inverted Productions</copyright>
 		<item>
 			<link>http://inprod.co/news#post32</link>
 			<title>TetrEscape Releases This Week</title>
-			<pubDate>Mon, 09 May 2022 09:30:00 EST</pubDate>
+			<pubDate>Mon, 09 May 2022 09:30:00 EDT</pubDate>
 			<description>
 				<![CDATA[
 					<p>
@@ -50,7 +50,7 @@
 						Join us Saturday, February 19<sup>th</sup> from 12-5 P.M. in the RIT MAGIC building.  It's completely free to attend, however you will need to show proof of vaccination and wear a mask at all times.
 					</p>
 					<figure>
-						<img src="/static/images/news/2022/rgf_spring.png" alt="The TetrEscape logo with a robot.  The ROC Game Fest logo is hidden by a mask.  The Workshop Scramble logo with a present box with supplies to stay safe from COVID-19." style="max-width: 100%; max-height: 480px;" />
+						<img src="https://inprod.co/static/images/news/2022/rgf_spring.png" alt="The TetrEscape logo with a robot.  The ROC Game Fest logo is hidden by a mask.  The Workshop Scramble logo with a present box with supplies to stay safe from COVID-19." style="max-width: 100%; max-height: 480px;" />
 					</figure>
 				]]>
 			</description>
@@ -58,6 +58,7 @@
 		<item>
 			<title>Happy New Year!</title>
 			<link>http://inprod.co/news#post29</link>
+			<pubDate>Sat, 01 Jan 2022 13:38:00 EST</pubDate>
 			<description>
 				<![CDATA[
 					<p>
@@ -68,7 +69,6 @@
 					</p>
 				]]>
 			</description>
-			<pubDate>Saturday, 1 Jan 2022 13:38:00 EST</pubDate>
 		</item>
 		<item>
 			<title>ROC Game Fest CANCELLED</title>
@@ -80,7 +80,7 @@
 					</p>
 				]]>
 			</description>
-			<pubDate>Wednesday, 22 Sep 2021 16:38:00 EST</pubDate>
+			<pubDate>Wed, 22 Sep 2021 16:38:00 EST</pubDate>
 		</item>
 		<item>
 			<title>ROC Game Fest Online Show</title>
@@ -98,7 +98,7 @@
 					</p>
 				]]>
 			</description>
-			<pubDate>Friday, 19 Feb 2021 05:58:00 EST</pubDate>
+			<pubDate>Fri, 19 Feb 2021 05:58:00 EST</pubDate>
 		</item>
 		<item>
 			<title>Workshop Scramble Anniversary Update</title>
@@ -113,7 +113,7 @@
 					</p>
 				]]>
 			</description>
-			<pubDate>Friday, 25 Dec 2020 15:34:00 EST</pubDate>
+			<pubDate>Fri, 25 Dec 2020 15:34:00 EST</pubDate>
 		</item>
 		<item>
 			<title>Happy Pride Month</title>
@@ -136,7 +136,7 @@
 					</p>
 				]]>
 			</description>
-			<pubDate>Monday, 1 Jun 2020 01:22:00 EST</pubDate>
+			<pubDate>Mon, 01 Jun 2020 01:22:00 EST</pubDate>
 		</item>
 		<item>
 			<title>ROC Game Fest Spring CANCELLED</title>
@@ -148,7 +148,7 @@
 					</p>
 				]]>
 			</description>
-			<pubDate>Saturday, 14 Mar 2020 13:34:00 EST</pubDate>
+			<pubDate>Sat, 14 Mar 2020 13:34:00 EST</pubDate>
 		</item>
 		<item>
 			<title>RMSC Local Games Showcase</title>
@@ -160,7 +160,7 @@
 					</p>
 				]]>
 			</description>
-			<pubDate>Friday, 8 Nov 2019 21:24:00 EST</pubDate>
+			<pubDate>Fri, 08 Nov 2019 21:24:00 EST</pubDate>
 		</item>
 		<item>
 			<title>No tricks, only treats today!</title>
@@ -172,7 +172,7 @@
 					</p>
 				]]>
 			</description>
-			<pubDate>Monday, 21 Oct 2019 11:29:00 EST</pubDate>
+			<pubDate>Mon, 21 Oct 2019 11:29:00 EST</pubDate>
 		</item>
 		<item>
 			<title>ROC Game Fest 2019</title>
@@ -184,7 +184,7 @@
 					</p>
 				]]>
 			</description>
-			<pubDate>Monday, 30 Sep 2019 16:14:00 EST</pubDate>
+			<pubDate>Mon, 30 Sep 2019 16:14:00 EST</pubDate>
 		</item>
 		<item>
 			<title>Light &amp; Sound Interactive</title>
@@ -196,7 +196,7 @@
 					</p>
 				]]>
 			</description>
-			<pubDate>Monday, 24 June 2019 14:43:00 EST</pubDate>
+			<pubDate>Mon, 24 Jun 2019 14:43:00 EST</pubDate>
 		</item>
 		<item>
 			<title>Workshop Scramble For Chrome OS</title>
@@ -209,7 +209,7 @@
 					</p>
 				]]>
 			</description>
-			<pubDate>Tuesday, 21 May 2019 10:49:00 EST</pubDate>
+			<pubDate>Tue, 21 May 2019 10:49:00 EST</pubDate>
 		</item>
 		<item>
 			<title>ROC Game Fest Spring</title>
