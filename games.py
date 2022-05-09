@@ -6,6 +6,7 @@ import jinja2
 import webapp2
 
 from models import Game
+from main import send_404_page
 
 JINJA_ENVIRONMENT = jinja2.Environment(
 	loader=jinja2.FileSystemLoader(os.path.join(os.path.dirname(__file__), 'templates/')),
@@ -27,7 +28,11 @@ class GamePage(webapp2.RequestHandler):
 		if not game:
 			# If an alternate ID was used, redirect to that page.
 			game = Game.query(Game.alt_ids == id).get()
-			self.redirect('/games/' + game.id)
+			if game:
+				self.redirect('/games/' + game.id)
+				return
+			# If the game was still not found, 404.
+			send_404_page(self)
 			return
 		
 		template = JINJA_ENVIRONMENT.get_template('head.html')
