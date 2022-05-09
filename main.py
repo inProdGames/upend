@@ -14,6 +14,22 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 	extensions=['jinja2.ext.autoescape'],
 	autoescape=True)
 
+def send_404_page(handler):
+	templateVars = {'title':'Error 404'}
+	
+	games = Game.gql('').fetch(8)
+	shuffle(games)
+	
+	template = JINJA_ENVIRONMENT.get_template('head.html')
+	handler.response.write(template.render(templateVars))
+	template = JINJA_ENVIRONMENT.get_template('404.html')
+	handler.response.write(template.render({'game':games[0]}))
+	template = JINJA_ENVIRONMENT.get_template('foot.html')
+	handler.response.write(template.render({}))
+	
+	handler.response.set_status(404)
+
+
 class HomePage(webapp2.RequestHandler):
 	def get(self):
 		templateVars = {
@@ -80,19 +96,7 @@ class AdsTxtPage(webapp2.RequestHandler):
 
 class NotFoundPage(webapp2.RequestHandler):
 	def get(self):
-		templateVars = {'title':'Error 404'}
-		
-		games = Game.gql('').fetch(8)
-		shuffle(games)
-		
-		template = JINJA_ENVIRONMENT.get_template('head.html')
-		self.response.write(template.render(templateVars))
-		template = JINJA_ENVIRONMENT.get_template('404.html')
-		self.response.write(template.render({'game':games[0]}))
-		template = JINJA_ENVIRONMENT.get_template('foot.html')
-		self.response.write(template.render({}))
-		
-		self.response.set_status(404)
+		send_404_page(self)
 
 site = webapp2.WSGIApplication([
 	('/', HomePage),

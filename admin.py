@@ -9,6 +9,7 @@ import jinja2
 import webapp2
 
 from models import Game
+from main import send_404_page
 
 JINJA_ENVIRONMENT = jinja2.Environment(
 	loader=jinja2.FileSystemLoader(os.path.join(os.path.dirname(__file__), 'templates/')),
@@ -404,16 +405,7 @@ class SignInRedirect(webapp2.RequestHandler):
 
 class NotFoundPage(webapp2.RequestHandler):
 	def get(self):
-		template_vars = {'title': 'Not Found'}
-		
-		template = JINJA_ENVIRONMENT.get_template('head.html')
-		self.response.write(template.render(template_vars))
-		template = JINJA_ENVIRONMENT.get_template('404.html')
-		self.response.write(template.render({}))
-		template = JINJA_ENVIRONMENT.get_template('foot.html')
-		self.response.write(template.render({}))
-		
-		self.response.set_status(404)
+		send_404_page(self)
 
 site = webapp2.WSGIApplication([
 	('/admin/reloadgamedatayesireallywanttodothis', ReloadGameData),

@@ -5,7 +5,7 @@
 		</header>
 		<div class="main">
 			{% if game %}
-				<p>Sorry, we could not find that page, but here is a game instead.  Whenever you finish, you can <a href="/games/{{ game.id }}">visit its page</a> or <a href="/">go back to the inProd home page</a>.</p>
+				<p>Sorry, we could not find that page, but here is a game instead.  If you want, you can <a href="/games/{{ game.id }}">visit its page</a> or <a href="/">go back to the inProd home page</a>.</p>
 				<br />
 				<center>
 					{{ game.embedCode|safe }}
