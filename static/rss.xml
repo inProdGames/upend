@@ -300,8 +300,10 @@
 					<p>
 						Tonight is the last night of <a href="http://wintereenmas.com" target="_blank">Wintereenmas</a>, the video gamers' holiday.  To celebrate, we are releasing the beta of our latest game: <a href="http://inprod.co/games/imd" target="_blank" style="font-style: italic;">Inverse Missile Defense</a>.
 					</p>
+					<figure>
+						<img src="https://inprod.co/static/images/news/2011/imd_thumbs.png" alt="Inverse Missile Defense screenshots." />
+					</figure>
 					<p>
-						<img src="http://inprod.co/images/games/thumbs/imd_small.png" style="float:right; margin-left:16px;" alt="Inverse Missile Defense"/>
 						<i>Inverse Missile Defense</i> is based on missile defense games, but played from the opposite perspective.  Instead of defending a planet from missiles raining down, you play as an alien ship trying to destroy the planet's inhabitants before they destroy you.  This game is being released as a beta, meaning we intend to add more features in the future.
 					</p>
 					<p>
@@ -319,8 +321,12 @@
 					<p>
 						Happy new year!  We hope you all had a great Chanukah/Christmas/Festivus/Kwanzaa/[insert your holiday here] and new year's.  Today, inProd has some post-new year's presents to extend that fun time of year.
 					</p>
+					<figure style="float:right; margin-right: 16px;">
+						<a href="https://inprod.co/static/images/news/2011/ltd_wave.png" target="_blank">
+							<img src="https://inprod.co/static/images/news/2011/ltd_wave.png" style="width: 128px; height: 139px;" alt="Legit TD in Wave"/>
+						</a>
+					</figure>
 					<p>
-						<a href="http://inprod.co/public/images/news/2011/ltd_wave.png" target="_blank"><img src="http://inprod.co/public/images/news/2011/ltd_wave.png" style="float:right; margin-right:16px; width:128px; height:139px;" alt="Legit TD in Wave"/></a>
 						First off, all our games have WaveThis buttons among the list of sharing options.  Until recently, clicking one would create a wave with a link to the game, but now we are taking advantage of the capabilities of <a href="http://wave.google.com" target="_blank">Google Wave</a> and actually <b>putting the game in the wave</b>.  Now you can share not just links to our games, but our games themselves with your friends on Google Wave.
 						<br/>
 						<small>(Note that a few games do not work as wave gadgets and therefore cannot be embedded in waves.)</small>
