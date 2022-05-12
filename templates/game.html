@@ -15,22 +15,22 @@
 	{% if game.cws_url or game.gplay_url or game.itch_url or game.ms_url %}
 		<div class="game-store-links">
 			{% if game.cws_url %}
-				<a href="game.cws_url" target="_blank">
+				<a href="{{ game.cws_url }}" target="_blank">
 					<img src="/static/images/store_badges/cws.png" alt="Available in the Chrome Web Store." />
 				</a>
 			{% endif %}
 			{% if game.gplay_url %}
-				<a href="game.gplay_url" target="_blank">
+				<a href="{{ game.gplay_url }}" target="_blank">
 					<img src="/static/images/store_badges/gplay.png" alt="Get it on Google Play." />
 				</a>
 			{% endif %}
 			{% if game.itch_url %}
-				<a href="game.itch_url" target="_blank">
+				<a href="{{ game.itch_url }}" target="_blank">
 					<img src="/static/images/store_badges/itch.png" alt="Available on itch.io." />
 				</a>
 			{% endif %}
 			{% if game.ms_url %}
-				<a href="game.ms_url" target="_blank">
+				<a href="{{ game.ms_url }}" target="_blank">
 					<img src="/static/images/store_badges/msstore.png" alt="Get it from Microsoft." />
 				</a>
 			{% endif %}
