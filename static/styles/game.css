@@ -21,9 +21,9 @@
 	flex-wrap: wrap;
 }
 	.game-store-links img {
-		height: 64px;
+		height: 56px;
 		border-radius: 8px;
-		margin: 0 4px;
+		margin: 4px;
 	}
 
 .game-main-content {
