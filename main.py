@@ -17,7 +17,7 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 def send_404_page(handler):
 	templateVars = {'title':'Error 404'}
 	
-	games = Game.gql('').fetch(8)
+	games = Game.gql('').fetch(11)
 	shuffle(games)
 	
 	template = JINJA_ENVIRONMENT.get_template('head.html')
