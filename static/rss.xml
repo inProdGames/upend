@@ -6,8 +6,31 @@
 		<atom:link href="https://inprod.co/static/rss.xml" rel="self" type="application/rss+xml" />
 		<description>The latest news from Inverted Productions</description>
 		<language>en-us</language>
-		<pubDate>Mon, 09 May 2022 19:30:00 EDT</pubDate>
+		<pubDate>Sat, 14 May 2022 03:20:00 EDT</pubDate>
 		<copyright>Inverted Productions</copyright>
+		<item>
+			<link>http://inprod.co/news#post33</link>
+			<title>It's Time To TetrEscape!</title>
+			<pubDate>Fri, 13 May 2022 10:00:00 EDT</pubDate>
+			<description>
+				<![CDATA[
+					<p>
+						The wait is over!  It's time to seek a way out!
+					</p>
+					<p>
+						<a href="https://inprod.co/games/tetrescape" style="font-size: italic;">TetrEscape</a> is rolling out now on
+						<a href="https://play.google.com/store/apps/details?id=co.inprod.TetrEscape" target="_blank">Google Play</a>,
+						the <a href="https://chrome.google.com/webstore/detail/tetrescape/mhbemflciekjhhacepbchaeggjphlkpi" target="_blank">Chrome Web Store</a>,
+						<a href="https://inprod.itch.io/tetrescape" target="_blank">Itch.io</a>,
+						and <a href="https://tetrescape.inprod.co" target="_blank">in your browser</a>!
+						Go grab your preferred version and get escaping!
+					</p>
+					<figure>
+						<img src="https://inprod.co/static/images/news/2022/te_release.png" alt="TetrEscape.  Available now on Google Play, the Chrome Web Store, Itch.io, and inprod.co/games/tetrescape." />
+					</figure>
+				]]>
+			</description>
+		</item>
 		<item>
 			<link>http://inprod.co/news#post32</link>
 			<title>TetrEscape Releases This Week</title>
