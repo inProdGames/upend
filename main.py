@@ -107,5 +107,6 @@ site = webapp2.WSGIApplication([
 	('/privacy', PrivacyPolicyPage),
 	('/robots\.txt', RobotsTxtPage),
 	('/ads\.txt', AdsTxtPage),
+	('/app-ads\.txt', AdsTxtPage),
 	('/.*', NotFoundPage)
 ])
