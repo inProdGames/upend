@@ -79,10 +79,11 @@ class PrivacyPolicyPage(webapp2.RequestHandler):
 		self.response.headers['Content-Type'] = 'text/plain'
 		self.response.write(
 			'Privacy Policy\n\n' +
-			'The Inverted Productions website and games do not collect or store any personal information until stated otherwise.\n\n' +
+			'The Inverted Productions website and games do not collect or store any personal information unless stated otherwise.\n\n' +
+			'The Inverted Productions website uses Google Analytics (see policies.google.com/privacy to inquire about their policies).  You can opt out of Google Analytics using Google\'s opt-out browser add-on (support.google.com/analytics/answer/181881).\n\n' +
 			'The Flash version of Legitimate Tower Defense includes ads from The Game Center (see www.thegamescenter.com to inquire about their policies).\n\n' +
 			'The Android version of Workshop Scramble will access your profile and device identifier if you enable achievements and leaderboards, however Inverted Productions does not store or otherwise use that information.\n\n' +
-			'TetrEscape includes ads from Google AdSense (see policies.google.com/privacy to inquire about their policies).')
+			'The web version of TetrEscape uses Google Analytics and includes ads from Google AdSense; the Android version of TetrEscape includes ads from Google AdMob (see policies.google.com/privacy to inquire about their policies).  You can opt out of Google Analytics using Google\'s opt-out browser add-on (support.google.com/analytics/answer/181881).')
 
 class RobotsTxtPage(webapp2.RequestHandler):
 	def get(self):
