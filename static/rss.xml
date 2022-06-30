@@ -6,8 +6,36 @@
 		<atom:link href="https://inprod.co/static/rss.xml" rel="self" type="application/rss+xml" />
 		<description>The latest news from Inverted Productions</description>
 		<language>en-us</language>
-		<pubDate>Sat, 14 May 2022 03:20:00 EDT</pubDate>
+		<pubDate>Thu, 102 Jun 2022 09:15:00 EDT</pubDate>
 		<copyright>Inverted Productions</copyright>
+		<!--<item>
+			<link>http://inprod.co/news#post##</link>
+			<title>[TODO]</title>
+			<pubDate>Day, 00 Jan 2022 00:00:00 EDT</pubDate>
+			<description>
+				<![CDATA[
+					
+				]]>
+			</description>
+		</item>-->
+		<item>
+			<link>http://inprod.co/news#post34</link>
+			<title>Queer Games Bundle 2022</title>
+			<pubDate>Thu, 02 Jun 2022 09:15:00 EDT</pubDate>
+			<description>
+				<![CDATA[
+					<p>
+						So excited and proud to have <a href="https://inprod.co/games/tetrescape" style="font-style: italic;">TetrEscape</a> in this year's Queer Games Bundle&mdash;along with over 500 other games, programs, and zines from other queer creators!
+					</p>
+					<p>
+						The bundle is live now <a href="https://itch.io/b/1404/queer-games-bundle-2022" target="_blank">on Itch.io</a>, and there is also <a href="https://itch.io/b/1405/queer-games-bundle-2022-pay-what-you-can-edition" target="_blank">a pay-what-you-can edition</a>!  Thank you all so much for supporting queer game developers and creators!
+					</p>
+					<figure>
+						<img src="https://inprod.co/static/images/news/2022/queer_games_bundle.png" alt="Queer Games Bundle 2022.  June 1 to 30." />
+					</figure>
+				]]>
+			</description>
+		</item>
 		<item>
 			<link>http://inprod.co/news#post33</link>
 			<title>It's Time To TetrEscape!</title>
@@ -18,7 +46,7 @@
 						The wait is over!  It's time to seek a way out!
 					</p>
 					<p>
-						<a href="https://inprod.co/games/tetrescape" style="font-size: italic;">TetrEscape</a> is rolling out now on
+						<a href="https://inprod.co/games/tetrescape" style="font-style: italic;">TetrEscape</a> is rolling out now on
 						<a href="https://play.google.com/store/apps/details?id=co.inprod.TetrEscape" target="_blank">Google Play</a>,
 						the <a href="https://chrome.google.com/webstore/detail/tetrescape/mhbemflciekjhhacepbchaeggjphlkpi" target="_blank">Chrome Web Store</a>,
 						<a href="https://inprod.itch.io/tetrescape" target="_blank">Itch.io</a>,
@@ -38,7 +66,7 @@
 			<description>
 				<![CDATA[
 					<p>
-						We're in the final countdown to <a href="https://inprod.co/games/tetrescape" style="font-size: italic;">TetrEscape</a>!  Thanks to everyone who's supported us along the way, and we hope you're looking forward to escaping some rooms this Friday the 13<sup>th</sup>!
+						We're in the final countdown to <a href="https://inprod.co/games/tetrescape" style="font-style: italic;">TetrEscape</a>!  Thanks to everyone who's supported us along the way, and we hope you're looking forward to escaping some rooms this Friday the 13<sup>th</sup>!
 					</p>
 					<figure>
 						<img src="https://inprod.co/static/images/news/2022/te_release_date.gif" alt="TetrEscape.  Escaping Friday, May thirteenth." style="max-width: 100%; max-height: 480px;" />
@@ -269,7 +297,7 @@
 						<a href="https://www.facebook.com/inProdGames" target="_blank">social</a>
 						<a href="https://www.instagram.com/inProdGames" target="_blank">media</a>
 						<a href="https://twitter.com/inProdGames" target="_blank">feeds</a>,
-						a new game is being delivered for the holidays!  <a href="https://inprod.co/games/workshopscramble" style="font-size: italic;">Workshop Scramble</a> has you helping the elves in Santa's workshop assemble toys for the good kids of the world.  It's a fast-paced arcade-y, puzzle-y mobile game, and you can grab it <strong>right now</strong> on the <a href="https://play.google.com/store/apps/details?id=co.inprod.WorkshopScramble" target="_blank">Google Play Store</a> or <a href="https://www.microsoft.com/en-us/p/workshop-scramble/9pp0953tfssm" target="_blank">Microsoft Store</a>!
+						a new game is being delivered for the holidays!  <a href="https://inprod.co/games/workshopscramble" style="font-style: italic;">Workshop Scramble</a> has you helping the elves in Santa's workshop assemble toys for the good kids of the world.  It's a fast-paced arcade-y, puzzle-y mobile game, and you can grab it <strong>right now</strong> on the <a href="https://play.google.com/store/apps/details?id=co.inprod.WorkshopScramble" target="_blank">Google Play Store</a> or <a href="https://www.microsoft.com/en-us/p/workshop-scramble/9pp0953tfssm" target="_blank">Microsoft Store</a>!
 					</p>
 					<p>
 						Officially, this is an early-access open beta, but stay tuned for the official release on Christmas, with a few features that aren't ready for prime time just yet.  If you want to keep up with the latest news on this particular game, you can follow <i>Workshop Scramble</i> on <a href="https://www.facebook.com/Workshop-Scramble-308846489966788" target="_blank">Facebook</a>, <a href="https://www.instagram.com/WorkshopScramble" target="_blank">Instagram</a>, or <a href="https://twitter.com/WorkshopScrambl" target="_blank">Twitter</a>!
